@@ -1,0 +1,52 @@
+
+.root{
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+.Heading{
+   
+top: 166px;
+left: 114px;
+width: 1091px;
+height: 50px;
+font: normal normal bold 42px/52px Helvetica;
+letter-spacing: 0px;
+font-weight: bold !important;
+color: #222222;
+padding-bottom: 15px;
+
+}
+.maindiv{
+    display: flex;
+    justify-content: space-between;
+}
+.tileContainer{
+    display: flex;
+   
+}
+.timePeriodDropDown {
+    background:#fff4cc;
+    padding: 15px;
+    width: 250px;
+    height: 80px;
+    margin-right: 20px;
+  }
+  .formControl {
+    
+    min-width: 200px;
+  }
+  .selectEmpty {
+    margin: 15px;
+    min-width: 200px;
+  }
+.AverageStars{
+  display: flex;
+  flex-direction: column;
+  margin-left: 22%;
+}
+.averageText{
+  color:#484848 !important;
+  font-size: 25px  !important;
+}
