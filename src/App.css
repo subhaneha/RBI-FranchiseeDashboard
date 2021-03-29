@@ -1,5 +1,15 @@
 @font-face{
   font-family: 'Chicken Sans';
-  src: url("../src/assets/ChickenScript_Regular-VF.ttf");
+  src: url("../src/assets/ChickenSans-Regular.ttf");
+  
+}
+@font-face{
+  font-family: 'Chicken SansBold';
+  src: url("../src/assets/ChickenSans-Bold.ttf");
+  
+}
+@font-face{
+  font-family: 'Flame Sans';
+  src: url("../src/assets/FlameSans-Regular.otf");
   
 }

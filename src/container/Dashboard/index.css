@@ -11,7 +11,7 @@ top: 166px;
 left: 114px;
 width: 1091px;
 height: 50px;
-font: normal normal bold 42px/52px Helvetica;
+font: normal normal bold 42px/52px Chicken SansBold;
 letter-spacing: 0px;
 font-weight: bold !important;
 color: #222222;
@@ -44,9 +44,13 @@ padding-bottom: 15px;
 .AverageStars{
   display: flex;
   flex-direction: column;
-  margin-left: 22%;
+  margin-left: 25%;
 }
 .averageText{
   color:#484848 !important;
-  font-size: 25px  !important;
+  font: normal normal 21px Flame Sans !important;
+}
+.stars{
+  width: 70px;
+  height: 70px;
 }

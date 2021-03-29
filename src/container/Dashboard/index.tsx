@@ -79,6 +79,8 @@ const backendData={
 
 const Dashboard=()=>{
    const [stars,setStars]=useState(2.1) 
+   const [isHover,setIsHover]=useState(false)
+   const [color,setColor] = useState("")
    const [timePeriod, setTimePeriod] = useState('current');
    const [dropDown, setDropDown] = useState([{name:"Current",value:"current"},{name:"July 2020 to Dec 2020",value:"July 2020 to Dec 2020"},{name:"Jan 2020 to Dec 2020",value:"Jan 2020 to Dec 2020"}]);
    const [data,setData]=React.useState<backend>() //for setting the variable with type
@@ -86,6 +88,15 @@ const Dashboard=()=>{
    useEffect(() => {
    setData(backendData) //this will set state to data variable from backenddata
   }, []);
+  const activateHover=(color:string)=>{
+   setColor(color)
+   setIsHover(true)
+   console.log("setted",isHover,color)
+  }
+  const deActivateHover=()=>{
+   setColor("")
+   setIsHover(false)
+  }
    return(
       <div className="root">
          <div className="maindiv">
@@ -117,16 +128,16 @@ const Dashboard=()=>{
           <div className="AverageStars">
              <Typography className="averageText"> Average Star Rating:{stars}/5 stars</Typography>
             <div>
-            {Array(Math.floor(stars)).fill(0).map((_,index)=><img  key={index} src={process.env.PUBLIC_URL+"/assets/Star - medium.svg"} className="star"></img>)}
+            {Array(Math.floor(stars)).fill(0).map((_,index)=><img  key={index} src={process.env.PUBLIC_URL+"/assets/Star - medium.svg"} className="stars"></img>)}
           
-          {Array(5-Number(Math.floor(stars))).fill(0).map((_,index)=><img  key={index} src={process.env.PUBLIC_URL+"/assets/Polygon 1.svg"} className="star"></img>)}
+          {Array(5-Number(Math.floor(stars))).fill(0).map((_,index)=><img  key={index} src={process.env.PUBLIC_URL+"/assets/Polygon 1.svg"} className="stars"></img>)}
   
             </div>
         
           </div>
          <div className="tileContainer">
-         <PieChart/>
-            {userDetails.map((userDetail,index)=><Tile key={index} header={userDetail.header} detailsData={userDetail.detailsData}/>
+         <PieChart activate={activateHover} deactivate={deActivateHover} isHover={isHover}   color={color}/>
+            {userDetails.map((userDetail,index)=><Tile activate={activateHover} isHover={isHover} color={color} deactivate={deActivateHover} key={index} header={userDetail.header} detailsData={userDetail.detailsData}/>
 )}</div>
       </div>
    )

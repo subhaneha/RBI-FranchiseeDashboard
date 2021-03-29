@@ -35,9 +35,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexGrow: 1,
     marginRight: "10px",
     textTransform: "none",
-    fontWeight: 600,
-    fontSize:"14px",
+    
+    fontSize:"16px",
     color: "#FFFFFF",
+    fontFamily:"Chicken SansBold"
   },
   
   leftheader: {

@@ -1,9 +1,8 @@
 
 .tileDetails{
-    width: 204px;
-    height: 241px;
     display: flex;
     flex-direction: column;
+    margin-right: 2px;
 }
 .tooltip{
     background-color:transparent;
@@ -17,13 +16,13 @@
     height: 15px  !important;
 }
 .star{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
 opacity: 1;
 }
 .tileObjectHeading{
     text-align: center;
-font: normal normal normal 17px/21px Chicken Sans;
+font: normal normal normal 16px Chicken Sans !important;
 letter-spacing: 0px;
 color: #FFFFFF;
 opacity: 1;

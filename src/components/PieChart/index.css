@@ -1,0 +1,55 @@
+.pieChart{
+    width: max-content;
+}
+.donutSegmentShaded{
+    -webkit-filter: drop-shadow( 3px 3px 1px  rgba(0, 0, 0, .7));
+    filter: drop-shadow( -1px 3px 2px  rgba(0, 0, 0, .7));
+    overflow: auto;
+}
+.usageHover{
+    border: 2px solid;
+    width: fit-content;
+    position: absolute;
+    background-color: white;
+    padding: 2px;
+}
+.Guest1{
+    left:260px;
+    bottom:400px;
+    color: #00B2A9;
+    border-color:  #00B2A9;
+}
+.Guest2{
+    left:265px;
+    bottom:280px;
+    color: #00B2A9;
+    border-color:  #00B2A9;
+}
+.Team1{
+    left:235px;
+    bottom:150px;
+    color: #911987;
+    border-color: #911987;
+}
+.Team2{
+    left:45px;
+    bottom:150px;
+    color: #911987;
+    border-color: #911987;
+}
+.Standard1{
+    left:40px;
+    bottom:340px;
+    color:#D90F06;
+    border-color:#D90F06;
+}
+.chartHeading{
+    position: absolute;
+    left: 185px;
+    top: 380px;
+    font: normal normal bold 110px Chicken SansBold;
+letter-spacing: 0px;
+color: #7D7F7D;
+text-transform: uppercase;
+opacity: 1;
+}
