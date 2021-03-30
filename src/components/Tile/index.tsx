@@ -9,7 +9,7 @@ interface TileProps {
         triangle: string;
         rating: string
         previousValue: string;
-        stars: Number
+        stars: number
         tooltiptitle: string;
         tooltipOptions: string[]
     }[]

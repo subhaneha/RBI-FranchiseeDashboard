@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Typography,Button } from "@material-ui/core";
 import Tooltip, { TooltipProps } from '@material-ui/core/Tooltip';
 import { withStyles, Theme,makeStyles,createStyles } from '@material-ui/core/styles';
@@ -11,7 +11,7 @@ interface DetailProps {
   triangle: string;
   rating: string
   previousValue: string;
-  stars:Number
+  stars:number
   tooltiptitle:string;
   tooltipOptions:string[]
 }
@@ -35,6 +35,8 @@ const LightTooltip = withStyles((theme: Theme) => ({
 );
 const TileDetails = (props: DetailProps) => {
     const classes=useStyles()
+    const [halfStar,setHalfStar]=useState(false)
+    const [remStars,setRemStars]=useState(5-Math.floor(props.stars))
     const toolTip=()=>{
         return(
             <div>
@@ -43,6 +45,14 @@ const TileDetails = (props: DetailProps) => {
             </div>
         )
     }
+    useEffect(()=>{
+      if(props){
+        if((5-props.stars-Math.floor(5-props.stars))>=0.5){
+          setHalfStar(true)
+          setRemStars(remStars-1)
+        }
+      }
+    },[props.stars])
   return (
     <div className="tileDetails">
        <Tooltip title={toolTip()} placement="left-start" className="tooltip" classes={{tooltip:classes.customWidth}}><InfoOutlinedIcon className="infoIcon"/></Tooltip>
@@ -55,9 +65,9 @@ const TileDetails = (props: DetailProps) => {
       </div>
       <Typography className="previous">Previous:{props.previousValue}</Typography>
       <div className="starsRating">
-          {Array(props.stars).fill(0).map((_,index)=><img  key={index} src={process.env.PUBLIC_URL+"/assets/Star - medium.svg"} className="star"></img>)}
-          
-          {Array(5-Number(props.stars)).fill(0).map((_,index)=><img  key={index} src={process.env.PUBLIC_URL+"/assets/Polygon 1.svg"} className="star"></img>)}
+          {Array(Math.floor(props.stars)).fill(0).map((_,index)=><img  key={index} src={process.env.PUBLIC_URL+"/assets/Star - medium.svg"} className="star"></img>)}
+          {halfStar&&<img  src={process.env.PUBLIC_URL+"/assets/star-half-yellow.svg"} className="halfstar"></img>}
+          {Array(Number(Math.floor(remStars))).fill(0).map((_,index)=><img  key={index} src={process.env.PUBLIC_URL+"/assets/Polygon 1.svg"} className="star"></img>)}
       </div>
       <Typography className="nextStar">Next Star:{props.rating}</Typography>
     </div>

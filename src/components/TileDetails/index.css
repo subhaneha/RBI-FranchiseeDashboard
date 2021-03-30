@@ -20,6 +20,11 @@
     height: 30px;
 opacity: 1;
 }
+.halfstar{
+    width: 20px;
+    height: 20px;
+}
+
 .tileObjectHeading{
     text-align: center;
 font: normal normal normal 16px Chicken Sans !important;

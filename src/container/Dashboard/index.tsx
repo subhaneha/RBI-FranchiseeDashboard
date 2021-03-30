@@ -34,7 +34,7 @@ const backendData={
             triangle: "../../assets/Delta indicator.svg",
             rating: "Reduce by 5s",
             previousValue: "83s",
-            stars:3,
+            stars:3.5,
             tooltiptitle:'The thresholds for grade storing as follows:',
             tooltipOptions:["A:0.0 to 0.0","B:0.0 to 0.0","C:0.0 to 0.0","D:0.0 to 0.0"]
         }]

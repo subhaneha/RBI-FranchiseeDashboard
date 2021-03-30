@@ -66,7 +66,7 @@ const PieChart = (props: PropsType) => {
           onMouseOver={() => props.activate("Guest")}
           onMouseOut={() => setTimeout(props.deactivate, 2000)}
           id="rightCircle"
-          className={props.isHover&&props.color=="Guest"?"donutSegmentShaded":""}
+          className={props.isHover&&props.color=="Guest"?"donutSegmentShadedGuest":""}
           cx={cxR}
           cy={cyR1}
           r="15.91549430918954"
@@ -80,7 +80,7 @@ const PieChart = (props: PropsType) => {
           onMouseOver={() => props.activate("Guest")}
           onMouseOut={() => setTimeout(props.deactivate, 2000)}
           id="rightCircle"
-          className={props.isHover&&props.color=="Guest"?"donutSegmentShaded":""}
+          className={props.isHover&&props.color=="Guest"?"donutSegmentShadedGuest":""}
           cx={cxR}
           cy={cyR2}
           r="15.91549430918954"
@@ -93,7 +93,7 @@ const PieChart = (props: PropsType) => {
         <circle
           onMouseOver={() => props.activate("Team")}
           onMouseOut={() => setTimeout(props.deactivate, 2000)}
-          className={props.isHover&&props.color=="Team"?"donutSegmentShaded":""}
+          className={props.isHover&&props.color=="Team"?"donutSegmentShadedTeam":""}
           cx={cXD1}
           cy={cyD}
           r="15.91549430918954"
@@ -106,7 +106,7 @@ const PieChart = (props: PropsType) => {
         <circle
           onMouseOver={() => props.activate("Team")}
           onMouseOut={() => setTimeout(props.deactivate, 2000)}
-          className={props.isHover&&props.color=="Team"?"donutSegmentShaded":""}
+          className={props.isHover&&props.color=="Team"?"donutSegmentShadedTeam":""}
           cx={cXD2}
           cy={cyD}
           r="15.91549430918954"
@@ -117,7 +117,7 @@ const PieChart = (props: PropsType) => {
           stroke-dashoffset="75"
         ></circle>
         <circle
-          className={props.isHover&&props.color=="Standard"?"donutSegmentShaded":""}
+          className={props.isHover&&props.color=="Standard"?"donutSegmentShadedStandard":""}
           onMouseOver={() => props.activate("Standard")}
           onMouseOut={() => setTimeout(props.deactivate, 2000)}
           cx={cxL}

@@ -1,9 +1,19 @@
 .pieChart{
     width: max-content;
 }
-.donutSegmentShaded{
+.donutSegmentShadedTeam{
     -webkit-filter: drop-shadow( 3px 3px 1px  rgba(0, 0, 0, .7));
-    filter: drop-shadow( -1px 3px 2px  rgba(0, 0, 0, .7));
+    filter: drop-shadow( 1px -3px 2px  rgba(0, 0, 0, .7));
+    overflow: auto;
+}
+.donutSegmentShadedGuest{
+    -webkit-filter: drop-shadow( 3px 3px 1px  rgba(0, 0, 0, .7));
+    filter: drop-shadow( -2px 3px 2px  rgba(0, 0, 0, .7));
+    overflow: auto;
+}
+.donutSegmentShadedStandard{
+    -webkit-filter: drop-shadow( 3px 3px 1px  rgba(0, 0, 0, .7));
+    filter: drop-shadow( 2px 3px 2px  rgba(0, 0, 0, .7));
     overflow: auto;
 }
 .usageHover{
@@ -14,32 +24,32 @@
     padding: 2px;
 }
 .Guest1{
-    left:260px;
-    bottom:400px;
+    left:15%;
+    bottom:50%;
     color: #00B2A9;
     border-color:  #00B2A9;
 }
 .Guest2{
-    left:265px;
-    bottom:280px;
+    left:17%;
+    bottom:35%;
     color: #00B2A9;
     border-color:  #00B2A9;
 }
 .Team1{
-    left:235px;
-    bottom:150px;
+    left:15%;
+    bottom:20%;
     color: #911987;
     border-color: #911987;
 }
 .Team2{
-    left:45px;
-    bottom:150px;
+    left:3%;
+    bottom:20%;
     color: #911987;
     border-color: #911987;
 }
 .Standard1{
-    left:40px;
-    bottom:340px;
+    left:2%;
+    bottom:47%;
     color:#D90F06;
     border-color:#D90F06;
 }
