@@ -2,6 +2,7 @@
 import { Box, FormControl, InputLabel, MenuItem, Select, Typography } from '@material-ui/core'
 import  React,{useState,useEffect}  from 'react'
 import PieChart from '../../components/PieChart/index'
+import RestaurantTable from '../../components/Table/index'
 import Tile from '../../components/Tile/index'
 import "./index.css"
 
@@ -139,6 +140,7 @@ const Dashboard=()=>{
          <PieChart activate={activateHover} deactivate={deActivateHover} isHover={isHover}   color={color}/>
             {userDetails.map((userDetail,index)=><Tile activate={activateHover} isHover={isHover} color={color} deactivate={deActivateHover} key={index} header={userDetail.header} detailsData={userDetail.detailsData}/>
 )}</div>
+         <RestaurantTable/>
       </div>
    )
 }

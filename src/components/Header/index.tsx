@@ -122,7 +122,7 @@ const Header: React.FC<Props> = () => {
               <Button >
                 <img
                   alt="logo"
-                  src="../../assets/Delt Indicator.svg"
+                  src="../../assets/PLK logo.svg"
                   className={classes.brandLogoOnScroll}
                 />
               </Button>

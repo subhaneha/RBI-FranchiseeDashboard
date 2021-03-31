@@ -1,0 +1,58 @@
+.header{
+    text-align: left;
+font: normal normal bold 13px Chicken SansBold  !important;
+letter-spacing: 0px;
+color: #222222;
+text-transform: uppercase;
+opacity: 1;
+}
+.guestHead{
+    color: #00B2A9 !important;  
+    text-align: center !important; 
+}
+.teamHead{
+    color:#911987 !important;  
+    text-align: center !important; 
+}
+.standardHead{
+    color:#D90F06 !important;  
+    text-align: center !important; 
+}
+.MuiTableCell-root{border-bottom: none !important;} 
+.tablerow:hover{
+    border: solid 3px #FF7D00 !important;
+    box-shadow: 0px 3px 6px #00000029 !important;
+}
+.restaurantName{
+    text-align: left;
+font: normal normal normal 24px Chicken Sans ;
+letter-spacing: 0px;
+color: #222222;
+opacity: 1;
+}
+.currentValue{
+font: normal normal bold 24px Chicken SansBold !important;
+color: #222222 !important;
+}
+.previousValue{
+    font: normal normal normal 14px Chicken Sans !important;
+color: #7D7F7D !important;
+}
+.indicator{
+    height: 18px !important;
+    width: 18px !important; 
+    padding-left: 1%;
+}
+.restaurantPlace{
+    text-align: left;
+font: normal normal normal 14px Chicken Sans  !important;
+color: #484848 !important;
+opacity: 1;
+}
+.indicatorDown{
+    transform: matrix(-1, 0, 0, -1, 0, 0);
+    /* background: #198737 0% 0% no-repeat padding-box; */
+    filter: invert(35%) sepia(99%) saturate(452%) hue-rotate(85deg) brightness(92%) contrast(84%);
+    height: 18px !important;
+    width: 18px !important; 
+}
