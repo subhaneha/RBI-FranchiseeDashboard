@@ -9,7 +9,7 @@ import "./index.css"
 
 const backendData={
     username:"Joe",
-    timeperiod:"july 2020 to Dec 2020",
+    timeperiod:"July 2020 to Dec 2020",
     stars:2.5
  }
   type backend={
@@ -100,6 +100,7 @@ const Dashboard=()=>{
   }
    return(
       <div className="root">
+         <Typography className="Navigation">Home&gt;July 2020 to Dec 2020</Typography>
          <div className="maindiv">
          <div className="Heading">Hi {data?.username} Here's your Scorecard for {data?.timeperiod}</div>
          <Box className="timePeriodDropDown">

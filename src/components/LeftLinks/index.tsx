@@ -30,6 +30,12 @@ const useStyles = makeStyles((theme: Theme) => ({
       borderBottom: "1px solid black",
     },
   },
+  buttonBordered: {
+    
+    borderRadius:"50%",
+    color: "#ffffff",
+   border:"2px solid #ffffff",
+  },
   titleTextUnderline: {
     flexGrow: 1,
     marginRight: "10px",
@@ -153,6 +159,18 @@ return(
         >
           How it works
         </Typography>
+      </Button>
+      <Button className={classes.buttonBordered}>
+      {/* <Typography
+          variant="h5"
+          color="inherit"
+          noWrap
+          className={
+              classes.titleText
+          }
+        > */}
+          ML
+        {/* </Typography> */}
       </Button>
           </ListItem>
 
