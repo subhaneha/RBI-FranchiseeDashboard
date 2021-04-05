@@ -28,7 +28,7 @@
     background-image: url('../../assets/red.svg');
     background-color: #c3392e;
     background-size: cover;
-    width: 50%;
+    
   }
   .tile:hover {
     box-shadow: -9px 10px 18px -8px rgba(0, 0, 0, 0.73);
@@ -43,4 +43,6 @@ font-weight: 600;
 }
 .tiles{
     display: flex;
+    justify-content: space-around;
+    align-items: center;
 }

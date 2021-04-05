@@ -1,21 +1,13 @@
-import React, { useContext, useState, useEffect } from "react";
+import React from "react";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
 import {
-  Avatar,
-  Box,
-  Divider,
-  Drawer,
-  IconButton,
-  List,
+  
   ListItem,
-  Modal,
+  
   Theme,
 } from "@material-ui/core";
-import { Close, Person } from "@material-ui/icons";
-import Hidden from "@material-ui/core/Hidden";
 
 interface Props { }
 
@@ -31,10 +23,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   buttonBordered: {
-    
+    display:"flex",
     borderRadius:"50%",
     color: "#ffffff",
    border:"2px solid #ffffff",
+  width:"30px",
+  height:"30px",
+  alignItems:"center",
+  justifyContent:"center"
   },
   titleTextUnderline: {
     flexGrow: 1,
@@ -160,18 +156,11 @@ return(
           How it works
         </Typography>
       </Button>
-      <Button className={classes.buttonBordered}>
-      {/* <Typography
-          variant="h5"
-          color="inherit"
-          noWrap
-          className={
-              classes.titleText
-          }
-        > */}
+      <div className={classes.buttonBordered}>
+      
           ML
-        {/* </Typography> */}
-      </Button>
+        
+      </div>
           </ListItem>
 
 )

@@ -41,13 +41,13 @@ const PieChart = (props: PropsType) => {
   }
   useEffect(() => {
     if (props.isHover) {
-      if (props.color == "Guest") rightTransistion();
-      else if (props.color == "Team") downTransistion();
-      else if (props.color == "Standard") leftTransistion();
+      if (props.color === "Guest") rightTransistion();
+      else if (props.color === "Team") downTransistion();
+      else if (props.color === "Standard") leftTransistion();
     } else {
       defaultState();
     }
-  }, [props.isHover]);
+  }, [props.isHover,props.color]);
   return (
     <div className="pieChart">
       <svg width="350px" height="350px" viewBox="0 0 42 42" className="donut">
@@ -66,7 +66,7 @@ const PieChart = (props: PropsType) => {
           onMouseOver={() => props.activate("Guest")}
           onMouseOut={() => setTimeout(props.deactivate, 2000)}
           id="rightCircle"
-          className={props.isHover&&props.color=="Guest"?"donutSegmentShadedGuest":""}
+          className={props.isHover&&props.color==="Guest"?"donutSegmentShadedGuest":""}
           cx={cxR}
           cy={cyR1}
           r="15.91549430918954"
@@ -80,7 +80,7 @@ const PieChart = (props: PropsType) => {
           onMouseOver={() => props.activate("Guest")}
           onMouseOut={() => setTimeout(props.deactivate, 2000)}
           id="rightCircle"
-          className={props.isHover&&props.color=="Guest"?"donutSegmentShadedGuest":""}
+          className={props.isHover&&props.color==="Guest"?"donutSegmentShadedGuest":""}
           cx={cxR}
           cy={cyR2}
           r="15.91549430918954"
@@ -93,7 +93,7 @@ const PieChart = (props: PropsType) => {
         <circle
           onMouseOver={() => props.activate("Team")}
           onMouseOut={() => setTimeout(props.deactivate, 2000)}
-          className={props.isHover&&props.color=="Team"?"donutSegmentShadedTeam":""}
+          className={props.isHover&&props.color==="Team"?"donutSegmentShadedTeam":""}
           cx={cXD1}
           cy={cyD}
           r="15.91549430918954"
@@ -106,7 +106,7 @@ const PieChart = (props: PropsType) => {
         <circle
           onMouseOver={() => props.activate("Team")}
           onMouseOut={() => setTimeout(props.deactivate, 2000)}
-          className={props.isHover&&props.color=="Team"?"donutSegmentShadedTeam":""}
+          className={props.isHover&&props.color==="Team"?"donutSegmentShadedTeam":""}
           cx={cXD2}
           cy={cyD}
           r="15.91549430918954"
@@ -117,7 +117,7 @@ const PieChart = (props: PropsType) => {
           stroke-dashoffset="75"
         ></circle>
         <circle
-          className={props.isHover&&props.color=="Standard"?"donutSegmentShadedStandard":""}
+          className={props.isHover&&props.color==="Standard"?"donutSegmentShadedStandard":""}
           onMouseOver={() => props.activate("Standard")}
           onMouseOut={() => setTimeout(props.deactivate, 2000)}
           cx={cxL}
@@ -131,11 +131,11 @@ const PieChart = (props: PropsType) => {
         ></circle>
         
       </svg>
-      <div className={props.isHover&&props.color=="Guest"?`usageHover ${props.color}1`:`usage `}>{props.isHover&&props.color=="Guest"?"22% Guest Satisfaction":<></>}</div>
-      <div className={props.isHover&&props.color=="Guest"?`usageHover ${props.color}2`:`usage `}>{props.isHover&&props.color=="Guest"?"11% Speed of Service":<></>}</div>
-      <div className={props.isHover&&props.color=="Team"?`usageHover ${props.color}1`:`usage `}>{props.isHover&&props.color=="Team"?"17% Emp Turnover":<></>}</div>
-      <div className={props.isHover&&props.color=="Team"?`usageHover ${props.color}2`:`usage `}>{props.isHover&&props.color=="Team"?"17% Training Execution":<></>}</div>
-      <div className={props.isHover&&props.color=="Standard"?`usageHover ${props.color}1`:`usage `}>{props.isHover&&props.color=="Standard"?"33% Standards Execution":<></>}</div>
+      <div className={props.isHover&&props.color==="Guest"?`usageHover ${props.color}1`:`usage `}>{props.isHover&&props.color==="Guest"?"22% Guest Satisfaction":<></>}</div>
+      <div className={props.isHover&&props.color==="Guest"?`usageHover ${props.color}2`:`usage `}>{props.isHover&&props.color==="Guest"?"11% Speed of Service":<></>}</div>
+      <div className={props.isHover&&props.color==="Team"?`usageHover ${props.color}1`:`usage `}>{props.isHover&&props.color==="Team"?"17% Emp Turnover":<></>}</div>
+      <div className={props.isHover&&props.color==="Team"?`usageHover ${props.color}2`:`usage `}>{props.isHover&&props.color==="Team"?"17% Training Execution":<></>}</div>
+      <div className={props.isHover&&props.color==="Standard"?`usageHover ${props.color}1`:`usage `}>{props.isHover&&props.color==="Standard"?"33% Standards Execution":<></>}</div>
       <div className="chartHeading">D</div>
     </div>
   );

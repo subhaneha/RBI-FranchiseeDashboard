@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
-import InputAdornment from "@material-ui/core/InputAdornment";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles } from "@material-ui/core/styles";
 import classNames from "classnames"
-import { List, ListItem, Theme, Box, TextField, IconButton } from "@material-ui/core";
+import { List, ListItem, Theme, Box} from "@material-ui/core";
 import LeftLinks from "../LeftLinks/index";
-import Hidden from "@material-ui/core/Hidden";
-import { Close, Search } from "@material-ui/icons";
+
 interface Props {}
 
 
@@ -36,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginRight: "10px",
     textTransform: "none",
     
-    fontSize:"16px",
+    fontSize:"20px",
     color: "#FFFFFF",
     fontFamily:"Chicken SansBold"
   },
@@ -71,7 +69,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   brandLogoOnScroll: {
     // position: "absolute",
-    width: "100px",
+    width: "60px",
+    height:"60px"
   },
   inputRoot: {
     color: "#fff",
@@ -99,8 +98,8 @@ padding:"2px"
 
 const Header: React.FC<Props> = () => {
   const classes = useStyles();
-  const [isSearchClick,setIsSearchClick]=useState(false)
-  const [value,setValue]=React.useState("")
+  
+  
   const appBarClasses = classNames({
     [classes.appBar]: true,
     [classes.absolute]: true,

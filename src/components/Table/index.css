@@ -38,7 +38,7 @@ color: #222222 !important;
     font: normal normal normal 14px Chicken Sans !important;
 color: #7D7F7D !important;
 }
-.indicator{
+.redIndicatorUp{
     height: 18px !important;
     width: 18px !important; 
     padding-left: 1%;
@@ -49,10 +49,113 @@ font: normal normal normal 14px Chicken Sans  !important;
 color: #484848 !important;
 opacity: 1;
 }
-.indicatorDown{
+.greenIndicatorDown{
     transform: matrix(-1, 0, 0, -1, 0, 0);
-    /* background: #198737 0% 0% no-repeat padding-box; */
     filter: invert(35%) sepia(99%) saturate(452%) hue-rotate(85deg) brightness(92%) contrast(84%);
     height: 18px !important;
     width: 18px !important; 
+}
+.redIndicatorDown{
+    transform: matrix(-1, 0, 0, -1, 0, 0);
+    height: 18px !important;
+    width: 18px !important; 
+}
+.greenIndicatorUp{
+    filter: invert(35%) sepia(99%) saturate(452%) hue-rotate(85deg) brightness(92%) contrast(84%);
+    height: 18px !important;
+    width: 18px !important; 
+}
+.starsDiv{
+    display: flex;
+}
+.starsRating{
+    font: normal normal normal 12px Chicken Sans !important;
+letter-spacing: 0px;
+color: #484848 !important;
+justify-content: space-between;
+
+padding-left: 5%;
+padding-bottom: 4%;
+}
+.restaurantsList{
+    text-align: left;
+font: normal normal bold 27px Chicken Sans !important;
+letter-spacing: 0px;
+color: #222222 !important;
+}
+.stats{
+    font: normal normal normal 17px Flame Sans !important;
+letter-spacing: 0px;
+color: #484848 !important;
+}
+.filterHovered{
+    
+    position: relative;
+    box-shadow: 4px 4px 24px -1px rgba(0, 0, 0, 0.3);
+    background: #FFF4CC;
+    margin-top:25px;
+    right: 30px;
+    padding: 10px;
+    width: 200px;
+    z-index: 1;
+    display: none;
+
+}
+.filter{
+    background: #FFF4CC 0% 0% no-repeat padding-box !important;
+    width: 116px;
+    height: 60px    ;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    margin-bottom: 25px;
+}
+.filter:hover .filterHovered{
+    cursor: pointer;
+    display: block;
+
+}
+.filterIcon{
+    width:18px;
+    height:20px
+}
+.filterHovered::before{
+    
+    content: '' '';
+    position: absolute;
+    bottom: 100%;
+    top: -30px;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-bottom-color: #FFF4CC;
+margin: auto;
+left: 0;
+right: 0;
+     /* boxShadow: '4px 4px 24px -1px rgba(0, 0, 0, 0.3)', */
+  }
+  .dropdown{
+      min-width: 170px;
+      height: 40px;
+      align-items: center;
+  }
+  .dropdownSort{
+    min-width: 170px;
+    height: 50px;
+    align-items: center;
+}
+.rightDivs{
+    display: flex;
+    justify-content: space-evenly;
+}
+.TableHeadings{
+    display: flex;
+    justify-content: space-between;
+}
+.tableUtilHeadings{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15%;
 }

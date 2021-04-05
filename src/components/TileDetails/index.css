@@ -4,6 +4,8 @@
     flex-direction: column;
     margin-right: 2px;
     margin: auto;
+    
+    height: 100%;
 }
 .tooltip{
     background-color:transparent;
@@ -28,7 +30,7 @@ opacity: 1;
 
 .tileObjectHeading{
     text-align: center;
-font: normal normal normal 16px Chicken Sans !important;
+font: normal normal normal 14px Chicken Sans !important;
 letter-spacing: 0px;
 color: #FFFFFF;
 opacity: 1;

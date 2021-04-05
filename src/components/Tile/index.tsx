@@ -53,7 +53,7 @@ const Tile = (props: TileProps) => {
             }
         }
         
-    }, [props.isHover])
+    }, [props.isHover,props.color,props.header])
 
 return (
     <div ref={tileRef} id={`${props.header}`} onMouseOver={() => props.activate(props.header)} onMouseOut={() => props.deactivate()} className={`tile ${props.header}`}>
