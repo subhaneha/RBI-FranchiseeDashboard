@@ -46,3 +46,19 @@ font-weight: 600;
     justify-content: space-around;
     align-items: center;
 }
+@media only screen and (max-width: 1400px) {
+  .tile{
+  
+    height: 250px;
+    width: 100%;
+}
+.tileHeading{
+  font: normal normal bold 28px Chicken Sans;
+letter-spacing: 0px;
+color: #FFFFFF;
+text-shadow: 0px 3px 6px #00000029;
+opacity: 1;
+font-weight: 600;
+}
+
+}
