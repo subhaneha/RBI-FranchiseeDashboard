@@ -25,31 +25,31 @@
     background-color: white;
     padding: 2px;
 }
-.Guest1{
+.Complaints{
     left:65%;
     bottom:75%;
     color: #00B2A9;
     border-color:  #00B2A9;
 }
-.Guest2{
-    left:65%;
+.Windows{
+    left:60%;
     bottom:45%;
     color: #00B2A9;
     border-color:  #00B2A9;
 }
-.Team1{
+.Training{
     left:55%;
     bottom:15%;
     color: #911987;
     border-color: #911987;
 }
-.Team2{
+.Turnover{
     left:3%;
     bottom:15%;
     color: #911987;
     border-color: #911987;
 }
-.Standard1{
+.Standards{
     left:-10%;
     bottom:60%;
     color:#D90F06;

@@ -51,6 +51,30 @@ interface TableData{
   turnoverRate: { current: string; previous: string },
   standards: { current: string; previous: string }
 }
+interface ArlTableType{
+  masterData:{
+  name: string,
+  place: string,
+  stars: number,
+  complaints: { current: string; previous: string },
+  windowTime: { current: string; previous: string },
+  trainingRate: { current: string; previous: string },
+  turnoverRate: { current: string; previous: string },
+  standards: { current: string; previous: string }
+},
+restaurants:[
+  {
+    name: string,
+    place: string,
+    stars: number,
+    complaints: { current: string; previous: string },
+    windowTime: { current: string; previous: string },
+    trainingRate: { current: string; previous: string },
+    turnoverRate: { current: string; previous: string },
+    standards: { current: string; previous: string }
+  }
+]
+}
 
 const row=[
   {
@@ -306,6 +330,7 @@ const RestaurantTable = () => {
                   </Typography>
                 </TableCell>
               </TableRow>
+              
             ))}
           </TableBody>
         </Table>

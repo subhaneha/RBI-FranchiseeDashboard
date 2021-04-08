@@ -6,6 +6,7 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
 import "./index.css"
 interface DetailProps {
+  header:string;
   detailHead: string;
   numberValue: string;
   triangle: string;
@@ -13,7 +14,12 @@ interface DetailProps {
   previousValue: string;
   stars:number
   tooltiptitle:string;
-  tooltipOptions:string[]
+  tooltipOptions:string[];
+  activate: (segment:string) => void
+  deactivate: (segment:string) => void
+  isHover:boolean;
+  
+  segment:string;
 }
   const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -28,6 +34,7 @@ const TileDetails = (props: DetailProps) => {
     const classes=useStyles()
     const [halfStar,setHalfStar]=useState(false)
     const [remStars,setRemStars]=useState(5-Math.floor(props.stars))
+    
     const toolTip=()=>{
         return(
             <div>
@@ -37,15 +44,42 @@ const TileDetails = (props: DetailProps) => {
         )
     }
     // useEffect(()=>{
-    //   if(props){
-    //     if((5-props.stars-Math.floor(5-props.stars))>=0.5){
-    //       setHalfStar(true)
-    //       setRemStars(remStars-1)
-    //     }
-    //   }
+    //   // if(props){
+    //   //   if((5-props.stars-Math.floor(5-props.stars))>=0.5){
+    //   //     setHalfStar(true)
+    //   //     setRemStars(remStars-1)
+    //   //   }
+    //   // }
+    //   console.log("headerTile",props.header)
     // },[])
+    
+    useEffect(() => {
+      if (document) {
+        
+          if (props.isHover) {
+            
+              const doc = document.getElementById(props.segment)
+              console.log("propSegment",props.segment)
+              if (doc) {
+                doc.style.transform = "scale(1.05,1.1)"
+                doc.style.boxShadow = "-9px 10px 18px -8px rgba(0, 0, 0, 0.73)"
+            }
+            
+          
+          }
+          else {
+              const doc = document.getElementById(props.segment)
+              
+              if (doc) {
+                  doc.style.transform = "scale(1)"
+                  doc.style.boxShadow = "none"
+              }
+          }
+      }
+      
+  }, [props.isHover])
   return (
-    <div className="tileDetails">
+    <div className={`tileDetails ${props.header}Tile`} id={`${props.detailHead.split(" ")[1]}`} onMouseOver={()=>props.activate(props.detailHead.split(" ")[1])} onMouseLeave={()=>props.deactivate(props.detailHead.split(" ")[1])}>
        <Tooltip title={toolTip()} placement="left-start" className="tooltip" classes={{tooltip:classes.customWidth}}><InfoOutlinedIcon className="infoIcon"/></Tooltip>
       <Typography className="tileObjectHeading">{props.detailHead}</Typography>
       

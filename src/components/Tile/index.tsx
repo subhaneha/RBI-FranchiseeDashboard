@@ -14,53 +14,25 @@ interface TileProps {
         tooltipOptions: string[]
     }[]
 
-    activate: (color: string) => void
-    deactivate: () => void
+    activate: (segment:string) => void
+    deactivate: (segment:string) => void
     isHover: boolean
-    color: string
+    
+    segment:string
 }
 const Tile = (props: TileProps) => {
     const tileRef = useRef<HTMLDivElement | null>(null)
-    useEffect(() => {
-        if (document) {
-            if (props.isHover) {
-                const doc = document.getElementById(props.color)
-                if (props.color == "Guest") {
-                    if (doc) {
-                        doc.style.transform = "translate(15px,-10px)"
-                        doc.style.boxShadow = "-9px 10px 18px -8px rgba(0, 0, 0, 0.73)"
-                    }
-                }
-                else if (props.color == "Team") {
-                    if (doc) {
-                        doc.style.transform = "translate(0px, 15px)"
-                        doc.style.boxShadow = "-9px 10px 18px -8px rgba(0, 0, 0, 0.73)"
-                    }
-                }
-                else if (props.color == "Standard") {
-                    if (doc) {
-                        doc.style.transform = "translate(-15px, -10px)"
-                        doc.style.boxShadow = "-9px 10px 18px -8px rgba(0, 0, 0, 0.73)"
-                    }
-                }
-            }
-            else {
-                const doc = document.getElementById(props.header)
-                if (doc) {
-                    doc.style.transform = "translate(0px,0px)"
-                    doc.style.boxShadow = "none"
-                }
-            }
-        }
-        
-    }, [props.isHover,props.color,props.header])
+    
 
 return (
-    <div ref={tileRef} id={`${props.header}`} onMouseOver={() => props.activate(props.header)} onMouseOut={() => props.deactivate()} className={`tile ${props.header}`}>
-        <p className="tileHeading">{props.header}</p>
+    <div>
+    <p className={`tileHeading ${props.header}head`}>{props.header}</p>
+    <div ref={tileRef}  className={`tile ${props.header}`}>
+        
         <div className="tiles">
-            {props.detailsData.map((detail) => <TileDetails {...detail} />)}
+            {props.detailsData.map((detail) => <TileDetails header={props.header} {...detail}  activate={props.activate} deactivate={props.deactivate}  segment={props.segment} isHover={props.isHover}/>)}
         </div>
+    </div>
     </div>
 )
 }
