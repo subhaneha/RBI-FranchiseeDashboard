@@ -26,9 +26,6 @@ padding-bottom: 15px;
     display: flex;
     flex-direction: column;
     margin-left:2% !important
-    /* grid-template-columns: repeat(4,auto);
-    grid-column-gap:2% ; */
-   
 }
 .tilesGrid{
   display: flex;
@@ -85,9 +82,10 @@ padding-bottom: 1%;
     padding-bottom: 15px;
     
     }
-    .AverageStars{
+    .tileContainer{
       display: flex;
       flex-direction: column;
-      margin-left: 35%;
-    }
+      margin-left:1% !important
+  }
+   
 }

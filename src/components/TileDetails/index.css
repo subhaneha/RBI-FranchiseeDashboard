@@ -137,6 +137,12 @@ opacity: 1;
   }
 
   @media only screen and (max-width: 1430px) {
+    .tileDetails{
+        
+        margin-left: 7px;
+        width: 150px;
+        height: 150px;
+    }
     .star{
         width: 20px;
         height: 20px;
