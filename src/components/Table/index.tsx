@@ -51,30 +51,7 @@ interface TableData{
   turnoverRate: { current: string; previous: string },
   standards: { current: string; previous: string }
 }
-interface ArlTableType{
-  masterData:{
-  name: string,
-  place: string,
-  stars: number,
-  complaints: { current: string; previous: string },
-  windowTime: { current: string; previous: string },
-  trainingRate: { current: string; previous: string },
-  turnoverRate: { current: string; previous: string },
-  standards: { current: string; previous: string }
-},
-restaurants:[
-  {
-    name: string,
-    place: string,
-    stars: number,
-    complaints: { current: string; previous: string },
-    windowTime: { current: string; previous: string },
-    trainingRate: { current: string; previous: string },
-    turnoverRate: { current: string; previous: string },
-    standards: { current: string; previous: string }
-  }
-]
-}
+
 
 const row=[
   {
@@ -101,15 +78,7 @@ const RestaurantTable = () => {
   
   return (
     <div>
-      <div className="TableHeadings">
-        <div >
-          <Typography className="restaurantsList">
-            Your Restaurants (53)
-          </Typography>
-          <Typography className="stats">
-            Stats shown are averages calculated over 6 month period
-          </Typography>
-        </div>
+      
         <div className="rightDivs">
         
           <div className="filter"  >
@@ -158,9 +127,6 @@ const RestaurantTable = () => {
       </FormControl>
           </div>
           </div>
-          
-         
-        
         
           <div className="filter">
             <div className="tableUtilHeadings">
@@ -187,17 +153,12 @@ const RestaurantTable = () => {
       </FormControl>
           </div>
           
-         
         </div>
-        <div className="filter">
-        <div className="tableUtilHeadings">
-            <img src="../../assets/MapView.svg" className="filterIcon" alt="filter"></img>
-            <Typography>Map View</Typography></div>
-          </div>
+
         </div>
 
 
-      </div>
+      
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>

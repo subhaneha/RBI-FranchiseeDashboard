@@ -1,6 +1,7 @@
 
-import { Box, FormControl, InputLabel, MenuItem, Select, Typography } from '@material-ui/core'
+import { Box, Button, FormControl, InputLabel, MenuItem, Select, Typography } from '@material-ui/core'
 import  React,{useState,useEffect}  from 'react'
+import NestedTable from '../../components/NestedTable'
 import PieChart from '../../components/PieChart/index'
 import RestaurantTable from '../../components/Table/index'
 import Tile from '../../components/Tile/index'
@@ -81,7 +82,7 @@ const backendData={
 const Dashboard=()=>{
    const [stars,setStars]=useState(2.1) 
    const [isHover,setIsHover]=useState(false)
-   
+   const [viewTable,setViewTable]=useState("restaurants")
    const [segment,setSegment] = useState("")
    const [timePeriod, setTimePeriod] = useState('current');
    const [dropDown, setDropDown] = useState([{name:"Current",value:"current"},{name:"July 2020 to Dec 2020",value:"July 2020 to Dec 2020"},{name:"Jan 2020 to Dec 2020",value:"Jan 2020 to Dec 2020"}]);
@@ -149,8 +150,26 @@ const Dashboard=()=>{
           </div>
          </div>
          
-           
-         <RestaurantTable/>
+         <div className="TableHeadings">
+        <div >
+          <Typography className="restaurantsList">
+          {viewTable==="restaurants"?"My Restaurants (4)":""}
+          {viewTable==="arl"?"ARL (3)":""}
+          {viewTable==="do"?"DO (3)":""}
+          </Typography>
+          <Typography className="stats">
+          {viewTable==="arl"?"ARL (Above Restaurant Leader)":""} {viewTable==="do"?"DO (District Operator)":""} Stats shown are averages calculated over 6 month period
+          </Typography>
+        </div>
+        <div className="rightDivs">
+             <Typography className="viewBy">View By</Typography>   
+            <Button className={viewTable==="restaurants"?"viewButtonsClicked":"viewButtons"} onClick={()=>setViewTable("restaurants")}>Restaurants</Button>
+            <Button className={viewTable==="arl"?"viewButtonsClicked":"viewButtons"}onClick={()=>setViewTable("arl")}>ARL</Button>
+            <Button className={viewTable==="do"?"viewButtonsClicked":"viewButtons"}onClick={()=>setViewTable("do")}>DO</Button>
+        </div>
+        </div>
+         
+         {viewTable=="restaurants"?<RestaurantTable/>:<NestedTable />}
       </div>
    )
 }
