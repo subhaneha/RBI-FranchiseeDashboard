@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import {  FormControl, InputLabel, Select, Typography } from "@material-ui/core";
 import "./index.css";
 import axios from "axios";
+import { NestedTableType } from "../NestedTable";
 function createData(
   name: string,
   place: string,
@@ -65,7 +66,7 @@ const row=[
   standards:{ current: "", previous: "" }	
 }]
 
-const RestaurantTable = () => {
+const RestaurantTable = (props:NestedTableType[]) => {
   const classes = useStyles();
   const [isVisible,setIsVisible]=useState("")
   const [rows,setRows]=useState<TableData[]>(row)
@@ -73,7 +74,12 @@ const RestaurantTable = () => {
   const [dmaValue,setDmaValue]=useState("")
   const [sortValue,setSortValue]=useState("")
   useEffect(()=>{
-    axios.get("../../assets/TableData.json").then(res=>setRows(res.data)).catch((err)=>{throw(err)})
+   
+    
+    const tempRows:TableData[]=row
+    Object.values(props).forEach(row=>{row.restaurants.forEach(restaurant=>tempRows.push(restaurant))})
+    tempRows.shift()
+    setRows(tempRows)
   },[])
   
   return (

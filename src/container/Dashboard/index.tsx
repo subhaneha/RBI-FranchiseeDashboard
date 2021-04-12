@@ -1,5 +1,6 @@
 
 import { Box, Button, FormControl, InputLabel, MenuItem, Select, Typography } from '@material-ui/core'
+import axios from 'axios'
 import  React,{useState,useEffect}  from 'react'
 import NestedTable from '../../components/NestedTable'
 import PieChart from '../../components/PieChart/index'
@@ -79,18 +80,80 @@ const backendData={
     }
  ]
 
+ interface NestedTableType{
+  masterData:{
+  name: string,
+  noOfRestaurants: string,
+  role:string,
+  stars: number,
+  complaints: { current: string; previous: string },
+  windowTime: { current: string; previous: string },
+  trainingRate: { current: string; previous: string },
+  turnoverRate: { current: string; previous: string },
+  standards: { current: string; previous: string }
+},
+restaurants:[
+  {
+    name: string,
+    place: string,
+    stars: number,
+    complaints: { current: string; previous: string },
+    windowTime: { current: string; previous: string },
+    trainingRate: { current: string; previous: string },
+    turnoverRate: { current: string; previous: string },
+    standards: { current: string; previous: string }
+  }
+]
+}
+
+const row:NestedTableType[]=[
+{
+ masterData: {  
+    name:"",
+  noOfRestaurants:"",
+  stars:0,
+  role:"",
+  complaints:{ current: "", previous: "" },
+  windowTime:{ current: "", previous: "" },
+  trainingRate:{ current: "", previous: "" },
+  turnoverRate:{ current: "", previous: "" },
+  standards:{ current: "", previous: "" }	
+},
+restaurants:[
+    {
+        name:"",
+      place:"",
+      stars:0,
+      complaints:{ current: "", previous: "" },
+      windowTime:{ current: "", previous: "" },
+      trainingRate:{ current: "", previous: "" },
+      turnoverRate:{ current: "", previous: "" },
+      standards:{ current: "", previous: "" }	
+    }
+]
+}
+]
 const Dashboard=()=>{
    const [stars,setStars]=useState(2.1) 
    const [isHover,setIsHover]=useState(false)
    const [viewTable,setViewTable]=useState("restaurants")
    const [segment,setSegment] = useState("")
+   const [rowsUpdated,setRowsUpdated]=useState(false)
+   const [rows,setRows]=useState<NestedTableType[]>(row)
    const [timePeriod, setTimePeriod] = useState('current');
    const [dropDown, setDropDown] = useState([{name:"Current",value:"current"},{name:"July 2020 to Dec 2020",value:"July 2020 to Dec 2020"},{name:"Jan 2020 to Dec 2020",value:"Jan 2020 to Dec 2020"}]);
    const [data,setData]=React.useState<backend>() //for setting the variable with type
    //setData(backendData)
    useEffect(() => {
    setData(backendData) //this will set state to data variable from backenddata
+   axios.get("../../assets/ArlTable.json").then(res=>setRows(res.data)).catch((err)=>{throw(err)})
+  
   }, []);
+  useEffect(() => {
+   console.log("rowsUpdated",rows)
+   setRowsUpdated(true)
+   }, [rows]);
+ 
   const activateHover=(segment:string)=>{
    
    setIsHover(true)
@@ -169,7 +232,8 @@ const Dashboard=()=>{
         </div>
         </div>
          
-         {viewTable=="restaurants"?<RestaurantTable/>:<NestedTable />}
+         {viewTable=="restaurants"&&<RestaurantTable {...rows}  />}
+         {rowsUpdated&&viewTable!=="restaurants"&&<NestedTable NestedTable={rows} role={viewTable}/>}
       </div>
    )
 }

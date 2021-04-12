@@ -43,10 +43,11 @@ const useStyles = makeStyles((theme: Theme) =>({
     minWidth: 120,
   },
 }));
-interface NestedTableType{
+export interface NestedTableType{
   masterData:{
   name: string,
   noOfRestaurants: string,
+  role:string,
   stars: number,
   complaints: { current: string; previous: string },
   windowTime: { current: string; previous: string },
@@ -67,13 +68,17 @@ restaurants:[
   }
 ]
 }
-
+interface TableProps{
+  NestedTable:NestedTableType[],
+  role:string
+}
 const row:NestedTableType[]=[
 {
  masterData: {  
     name:"",
   noOfRestaurants:"",
   stars:0,
+  role:"",
   complaints:{ current: "", previous: "" },
   windowTime:{ current: "", previous: "" },
   trainingRate:{ current: "", previous: "" },
@@ -96,15 +101,37 @@ restaurants:[
 ]
 
 
-const NestedTable = () => {
+const NestedTable = (props:TableProps) => {
   const classes = useStyles();
   const [isVisible,setIsVisible]=useState(false)
   const [expandUser,setExpandUser]=useState("")
   const [rows,setRows]=useState<NestedTableType[]>(row)
+  const [filteredRows,setFilteredRows]=useState<NestedTableType[]>(row)
+  const [sortValue,setSortValue]=useState("")
+  const [filterValue,setFilterValue]=useState("")
   useEffect(()=>{
-    axios.get("../../assets/ArlTable.json").then(res=>setRows(res.data)).catch((err)=>{throw(err)})
-  },[])
-
+    var userRows=Object.values(props.NestedTable)
+  
+    userRows=userRows.filter(userRow=>userRow.masterData.role==props.role.toLocaleUpperCase())
+    
+    setRows(userRows)
+  },[props])
+  useEffect(()=>{ 
+    setFilteredRows(rows);
+  },[rows])
+  const handleFilter=(value:string)=>{
+    if(value=="clear") {setFilteredRows(rows);setFilterValue("")}
+  else{
+    setFilterValue(value)
+  
+  setFilteredRows(rows.filter(row=>row.masterData.name.split(" ")[0]==value)  )}
+  
+  }
+  const handleSort=(order:string)=>{
+    setSortValue(order)
+    if(order==="low") setFilteredRows(rows.sort((a,b)=>a.masterData.stars-b.masterData.stars))
+    else if(order==="high") setFilteredRows(rows.sort((a,b)=>b.masterData.stars-a.masterData.stars))
+  }
   const RowRender=(row:any,index:number)=>{
     return(
       <TableRow key={row.name} className="tableRow">
@@ -220,22 +247,37 @@ const NestedTable = () => {
   
   return (
     <div>
-            {/* <FormControl variant="outlined" className={classes.formControl}>
+            <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel id="demo-simple-select-outlined-label">Filter By</InputLabel>
         <Select
         
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
-          value={""}
-          
+          value={filterValue}
+          onChange={(event)=>handleFilter(String(event.target.value))}
           label="Age"
         >
           
-          <MenuItem value={"Alan"}>Alan</MenuItem>
-          <MenuItem value={"Dana"}>Dana</MenuItem>
-          <MenuItem value={"Bob"}>Bob</MenuItem>
+          {rows.map(filteredRow=><MenuItem value={filteredRow.masterData.name.split(" ")[0]}>{filteredRow.masterData.name}</MenuItem>)}
+          <MenuItem value={"clear"}>clear filter</MenuItem>
         </Select>
-</FormControl> */}
+</FormControl>
+
+<FormControl variant="outlined" className={classes.formControl}>
+        <InputLabel id="demo-simple-select-outlined-label">Sort By</InputLabel>
+        <Select
+        
+          labelId="demo-simple-select-outlined-label"
+          id="demo-simple-select-outlined"
+          value={sortValue}
+          onChange={(event)=>handleSort(String(event.target.value))}
+          label="Age"
+        >
+          <MenuItem value={"low"}>Low to High</MenuItem>
+          <MenuItem value={"high"}>High to Low</MenuItem>
+        </Select>
+</FormControl>
+
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
@@ -261,7 +303,7 @@ const NestedTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows?.map((row) => (
+            {filteredRows?.map((row) => (
                 <>
               <TableRow key={row.masterData.name} className="tablerow">
                 <TableCell component="th" scope="row">

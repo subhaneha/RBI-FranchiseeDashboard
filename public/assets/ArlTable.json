@@ -4,6 +4,7 @@
         "name":"Alan Smith",
       "noOfRestaurants":"4 Restaurants",
       "stars":1.5,
+      "role":"ARL",
       "complaints":{ "current": "16", "previous": "8" },
       "windowTime":{ "current": "81s", "previous": "83s" },
       "trainingRate":{ "current": "75%", "previous": "83%" },
@@ -57,6 +58,7 @@
         "name":"Bob Johnson",
       "noOfRestaurants":"2 Restaurants",
       "stars":3,
+      "role":"ARL",
       "complaints":{ "current": "18", "previous": "10" },
       "windowTime":{ "current": "73s", "previous": "83s" },
       "trainingRate":{ "current": "71%", "previous": "83%" },
@@ -89,7 +91,42 @@
       "masterData":{
         "name":"Leon Williams",
       "noOfRestaurants":"2 Restaurants",
-      "stars":3,
+      "stars":2.5,
+      "role":"DO",
+      "complaints":{ "current": "18", "previous": "10" },
+      "windowTime":{ "current": "73s", "previous": "83s" },
+      "trainingRate":{ "current": "71%", "previous": "83%" },
+      "turnoverRate":{ "current": "80%", "previous": "90%" },
+      "standards":{ "current": "73%", "previous": "87%" }	
+   } , 
+    "restaurants":[{
+          "name":"Restaurant #128",
+        "place":"31st&5th Ave,NY 00000",
+        "stars":1.5,
+        "complaints":{ "current": "16", "previous": "8" },
+        "windowTime":{ "current": "81s", "previous": "83s" },
+        "trainingRate":{ "current": "75%", "previous": "83%" },
+        "turnoverRate":{ "current": "90%", "previous": "105%" },
+        "standards":{ "current": "73%", "previous": "87%" }	
+     },
+     {
+          "name":"Restaurant #158",
+        "place":"34th&3rd Ave,NY 00000",
+        "stars":2.5,
+        "complaints":{ "current": "11", "previous": "5" },
+        "windowTime":{ "current": "73s", "previous": "83s" },
+        "trainingRate":{ "current": "65%", "previous": "83%" },
+        "turnoverRate":{ "current": "45%", "previous": "55%" },
+        "standards":{ "current": "79%", "previous": "76%" }	
+     }]
+    
+    },
+    {
+      "masterData":{
+        "name":"John Smith",
+      "noOfRestaurants":"2 Restaurants",
+      "stars":3.1,
+      "role":"DO",
       "complaints":{ "current": "18", "previous": "10" },
       "windowTime":{ "current": "73s", "previous": "83s" },
       "trainingRate":{ "current": "71%", "previous": "83%" },
