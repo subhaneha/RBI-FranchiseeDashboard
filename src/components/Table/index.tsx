@@ -7,10 +7,12 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import {  FormControl, InputLabel, Select, Typography } from "@material-ui/core";
+import {  Button, Checkbox, FormControl, FormControlLabel, InputLabel, Select, Typography } from "@material-ui/core";
 import "./index.css";
 import axios from "axios";
 import { NestedTableType } from "../NestedTable";
+import { ExpandLess } from "@material-ui/icons";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 function createData(
   name: string,
   place: string,
@@ -53,7 +55,9 @@ interface TableData{
   standards: { current: string; previous: string }
 }
 
-
+interface TableProps{
+  rows:NestedTableType[]
+}
 const row=[
   {
     name:"",
@@ -66,102 +70,70 @@ const row=[
   standards:{ current: "", previous: "" }	
 }]
 
-const RestaurantTable = (props:NestedTableType[]) => {
+const RestaurantTable = (props:TableProps) => {
   const classes = useStyles();
   const [isVisible,setIsVisible]=useState("")
   const [rows,setRows]=useState<TableData[]>(row)
   const [arlValue,setArlValue]=useState("")
   const [dmaValue,setDmaValue]=useState("")
   const [sortValue,setSortValue]=useState("")
+  const [filterValues,setFilterValues]=useState([""])
+  const [cancelClicked,setCancelClicked]=useState(true)
+  const [utilClicked,setUtilClicked]=useState("")
   useEffect(()=>{
    
     
     const tempRows:TableData[]=row
-    Object.values(props).forEach(row=>{row.restaurants.forEach(restaurant=>tempRows.push(restaurant))})
+    props.rows.forEach(row=>{row.restaurants.forEach(restaurant=>tempRows.push(restaurant))})
     tempRows.shift()
     setRows(tempRows)
-  },[])
-  
+  },[props.rows])
+  const handleCheck=(event:any)=>{
+    event.target.checked && filterValues.push(event.target.name)
+    if(!event.target.checked){
+      const index=filterValues.indexOf(event.target.name)
+      index>-1 && filterValues.splice(index,1)
+    }
+  }
+ 
+  const handleSort=(order:string)=>{
+    setSortValue(order)
+    if(order==="low") setRows(rows.sort((a,b)=>a.stars-b.stars))
+    else if(order==="high") setRows(rows.sort((a,b)=>b.stars-a.stars))
+    setCancelClicked(true)
+  }
   return (
     <div>
-      
-        <div className="rightDivs">
+       <div className="tableUtils">
+      <div className="filtered">
+        <div className="filterHeadings"><Typography>Filter By</Typography>
+       {!cancelClicked&&utilClicked==="filter"?<ExpandLess onClick={()=>setCancelClicked(true)}/>:<ExpandMoreIcon onClick={()=>{setCancelClicked(false);setUtilClicked("filter")}}/>}
         
-          <div className="filter"  >
-          <div className="tableUtilHeadings">
-            <img src="../../assets/IconFilter.svg" className="filterIcon" alt="filter"></img>
-            <Typography>Filter</Typography></div>
+        </div>
+      <div className={!cancelClicked&&utilClicked==="filter"?"filteredHovered":"filteredHoveredCancel"}>
+            <FormControl variant="outlined" className={classes.formControl}>
+          <Button className="filterButtons" >DMA:(Designated Market Area)</Button>
+          <Button className="filterButtons">North</Button>
+          <Button className="filterButtons">South</Button>
+          <Button className="filterButtons">East</Button>
+          <Button className="filterButtons">West</Button>
+</FormControl>
 
-            <div className="filterHovered">
-          <FormControl variant="filled" className={classes.formControl}>
-        <InputLabel htmlFor="filled-age-native-simple">ARL</InputLabel>
-        <Select
-          native
-          value={arlValue}
-          onChange={(event)=>{setArlValue(String(event.target.value))}}
-          inputProps={{
-            name: 'ARL',
-            id: 'filled-age-native-simple',
-          }}
-          className="dropdown"
-        >
-        <option aria-label="None" value="" />
-          <option value={"Alan"}>Alan</option>
-          <option value={"Bob"}>Bob</option>
-          <option value={"Catherine"}>Catherine</option>
-          <option value={"Dana"}>Dana</option>
-        </Select>
-      </FormControl>
-      <FormControl variant="filled" className={classes.formControl}>
-        <InputLabel htmlFor="filled-age-native-simple">DMA</InputLabel>
-        <Select
-          native
-          value={dmaValue}
-          onChange={(event)=>{setDmaValue(String(event.target.value))}}
-          inputProps={{
-            name: 'ARL',
-            id: 'filled-age-native-simple',
-          }}
-          className="dropdown"
-        >
-        <option aria-label="None" value="" />
-          <option value={"North"}>North</option>
-          <option value={"South"}>South</option>
-          <option value={"East"}>East</option>
-          <option value={"West"}>West</option>
-        </Select>
-      </FormControl>
-          </div>
-          </div>
+</div>
+</div>
+
+<div className="filtered">
+        <div className="filterHeadings"><Typography>Sort By</Typography>
+       {!cancelClicked&&utilClicked==="sort"?<ExpandLess onClick={()=>setCancelClicked(true)}/>:<ExpandMoreIcon onClick={()=>{setCancelClicked(false);setUtilClicked("sort")}}/>}
         
-          <div className="filter">
-            <div className="tableUtilHeadings">
-            <img src="../../assets/IconSort.svg" className="filterIcon" alt="filter"></img>
-            <Typography>Sort</Typography>
-            </div>
-           
-            <div className="filterHovered">
-          <FormControl variant="filled" className={classes.formControl}>
-        <InputLabel htmlFor="filled-age-native-simple">Sort by</InputLabel>
-        <Select
-          native
-          value={sortValue}
-          onChange={(event)=>{setSortValue(String(event.target.value))}}
-          inputProps={{
-            name: 'Sort',
-            id: 'filled-age-native-simple',
-          }}
-          className="dropdownSort"
-        >
-          <option value={"Alan"}>Low to High</option>
-          <option value={"Bob"}>High to Low</option>
-        </Select>
-      </FormControl>
-          </div>
-          
         </div>
-
-        </div>
+        <div  className={!cancelClicked&&utilClicked==="sort"?"filteredHovered":"filteredHoveredCancel"}>
+<FormControl variant="outlined" className={classes.formControl}>
+          <Button onClick={()=>handleSort("low")}>Low to High</Button>
+          <Button onClick={()=>handleSort("high")}>High to Low</Button>
+</FormControl></div>
+</div>
+</div>
 
 
       

@@ -8,7 +8,6 @@ import RestaurantTable from '../../components/Table/index'
 import Tile from '../../components/Tile/index'
 import "./index.css"
 
-
 const backendData={
     username:"Joe",
     timeperiod:"July 2020 to Dec 2020",
@@ -232,7 +231,7 @@ const Dashboard=()=>{
         </div>
         </div>
          
-         {viewTable=="restaurants"&&<RestaurantTable {...rows}  />}
+         {viewTable=="restaurants"&&<RestaurantTable rows={rows}  />}
          {rowsUpdated&&viewTable!=="restaurants"&&<NestedTable NestedTable={rows} role={viewTable}/>}
       </div>
    )

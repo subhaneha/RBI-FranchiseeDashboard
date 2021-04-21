@@ -175,9 +175,89 @@ right: 0;
     display: flex;
     justify-content: space-between;
 }
-.tableUtilHeadings{
+.tableUtils{
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 15%;
+    justify-content: flex-end;
+    
 }
+.filtered{
+   
+    width: 120px;
+    height: 56px;
+    display: inline-block;
+    justify-content: center;
+   
+    border: 1px solid #CDCDCD;
+    border-radius: 3px;
+    color: #484848 !important;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.filtered:hover{
+    border: 1px solid black;
+    cursor: pointer;
+}
+.filterHeadings{
+    display: flex;
+    margin-top: 15px;
+    margin-left: 15px;
+    justify-content: space-between;
+}
+/* .filtered:hover .filterHovered{
+    cursor: pointer;
+    display: block;
+
+} */
+
+.filteredHovered{
+    
+    position: relative;
+    box-shadow: 4px 4px 24px -1px rgba(0, 0, 0, 0.3);
+    background-color: #FFFFFF;
+    margin-top:25px;
+    right: 30px;
+    padding: 10px;
+    width: fit-content;
+    z-index: 1;
+    display: block;
+
+}
+.filteredHoveredCancel{
+    
+    position: relative;
+    box-shadow: 4px 4px 24px -1px rgba(0, 0, 0, 0.3);
+    background-color: #FFFFFF;
+    margin-top:25px;
+    right: 30px;
+    padding: 10px;
+    width: 200px;
+    z-index: 1;
+    display: none;
+
+}
+.filterHovered::before{
+    
+    content: '' '';
+    position: absolute;
+    bottom: 100%;
+    top: -30px;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-bottom-color: #FFF4CC;
+margin: auto;
+left: 0;
+right: 0;
+     /* boxShadow: '4px 4px 24px -1px rgba(0, 0, 0, 0.3)', */
+  }
+  .filterButtons{
+      display: flex;
+  }
+  .applyButton{
+      color: #FF7D00 !important;
+  }
+  .checkBox{
+    color: #FF7D00 !important;
+    border-radius: 5px !important;
+  }

@@ -97,7 +97,7 @@ color: #484848 !important;
     
     position: relative;
     box-shadow: 4px 4px 24px -1px rgba(0, 0, 0, 0.3);
-    background: #FFF4CC;
+    background: #FFF4CC !important;
     margin-top:25px;
     right: 30px;
     padding: 10px;
@@ -164,4 +164,8 @@ right: 0;
     align-items: center;
     justify-content: center;
     margin-top: 15%;
+}
+.filterButtons{
+    font-size: 0.8rem;
+    text-transform: capitalize !important;
 }

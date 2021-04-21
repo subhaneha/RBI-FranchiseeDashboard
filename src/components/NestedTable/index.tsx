@@ -7,11 +7,14 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import {  FormControl, InputLabel, MenuItem, Select, Typography } from "@material-ui/core";
+import {  Button, Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, Select, Typography } from "@material-ui/core";
 import AddIcon from '@material-ui/icons/Add';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 import "./index.css";
 import RemoveIcon from '@material-ui/icons/Remove';
 import axios from "axios";
+import { ExpandLess } from "@material-ui/icons";
 function createData(
   name: string,
   place: string,
@@ -108,7 +111,9 @@ const NestedTable = (props:TableProps) => {
   const [rows,setRows]=useState<NestedTableType[]>(row)
   const [filteredRows,setFilteredRows]=useState<NestedTableType[]>(row)
   const [sortValue,setSortValue]=useState("")
-  const [filterValue,setFilterValue]=useState("")
+  const [filterValues,setFilterValues]=useState([""])
+  const [cancelClicked,setCancelClicked]=useState(true)
+  const [utilClicked,setUtilClicked]=useState("")
   useEffect(()=>{
     var userRows=Object.values(props.NestedTable)
   
@@ -119,18 +124,32 @@ const NestedTable = (props:TableProps) => {
   useEffect(()=>{ 
     setFilteredRows(rows);
   },[rows])
-  const handleFilter=(value:string)=>{
-    if(value=="clear") {setFilteredRows(rows);setFilterValue("")}
-  else{
-    setFilterValue(value)
-  
-  setFilteredRows(rows.filter(row=>row.masterData.name.split(" ")[0]==value)  )}
-  
+  const handleCheck=(event:any)=>{
+    event.target.checked && filterValues.push(event.target.name)
+    if(!event.target.checked){
+      const index=filterValues.indexOf(event.target.name)
+      index>-1 && filterValues.splice(index,1)
+    }
+  }
+  const handleFilter=()=>{
+    var filtered = [];
+
+for(var arr in rows){
+   for(var filter in filterValues){
+       if(rows[arr].masterData.name == filterValues[filter]){
+          filtered.push(rows[arr]);
+         }
+   }
+}
+filtered.length>0?setFilteredRows(filtered):setFilteredRows(rows);
+
+  setCancelClicked(true)
   }
   const handleSort=(order:string)=>{
     setSortValue(order)
     if(order==="low") setFilteredRows(rows.sort((a,b)=>a.masterData.stars-b.masterData.stars))
     else if(order==="high") setFilteredRows(rows.sort((a,b)=>b.masterData.stars-a.masterData.stars))
+    setCancelClicked(true)
   }
   const RowRender=(row:any,index:number)=>{
     return(
@@ -247,37 +266,34 @@ const NestedTable = (props:TableProps) => {
   
   return (
     <div>
+      <div className="tableUtils">
+      <div className="filtered">
+        <div className="filterHeadings"><Typography>Filter By</Typography>
+       {!cancelClicked&&utilClicked==="filter"?<ExpandLess onClick={()=>setCancelClicked(true)}/>:<ExpandMoreIcon onClick={()=>{setCancelClicked(false);setUtilClicked("filter")}}/>}
+        
+        </div>
+      <div className={!cancelClicked&&utilClicked==="filter"?"filteredHovered":"filteredHoveredCancel"}>
             <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel id="demo-simple-select-outlined-label">Filter By</InputLabel>
-        <Select
-        
-          labelId="demo-simple-select-outlined-label"
-          id="demo-simple-select-outlined"
-          value={filterValue}
-          onChange={(event)=>handleFilter(String(event.target.value))}
-          label="Age"
-        >
+          {rows.map(filteredRow=><FormControlLabel control={<Checkbox onChange={handleCheck} name={filteredRow.masterData.name} className="checkBox" ></Checkbox>} label={filteredRow.masterData.name.split(" ")[0]} />)}
           
-          {rows.map(filteredRow=><MenuItem value={filteredRow.masterData.name.split(" ")[0]}>{filteredRow.masterData.name}</MenuItem>)}
-          <MenuItem value={"clear"}>clear filter</MenuItem>
-        </Select>
+       <div className="filterButtons"> <Button variant='text' onClick={()=>setCancelClicked(true)}>Cancel</Button> <Button variant="text" className="applyButton" onClick={handleFilter}>Apply</Button></div>
 </FormControl>
 
-<FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel id="demo-simple-select-outlined-label">Sort By</InputLabel>
-        <Select
+</div>
+</div>
+
+<div className="filtered">
+        <div className="filterHeadings"><Typography>Sort By</Typography>
+       {!cancelClicked&&utilClicked==="sort"?<ExpandLess onClick={()=>setCancelClicked(true)}/>:<ExpandMoreIcon onClick={()=>{setCancelClicked(false);setUtilClicked("sort")}}/>}
         
-          labelId="demo-simple-select-outlined-label"
-          id="demo-simple-select-outlined"
-          value={sortValue}
-          onChange={(event)=>handleSort(String(event.target.value))}
-          label="Age"
-        >
-          <MenuItem value={"low"}>Low to High</MenuItem>
-          <MenuItem value={"high"}>High to Low</MenuItem>
-        </Select>
-</FormControl>
-
+        </div>
+        <div  className={!cancelClicked&&utilClicked==="sort"?"filteredHovered":"filteredHoveredCancel"}>
+<FormControl variant="outlined" className={classes.formControl}>
+          <Button onClick={()=>handleSort("low")}>Low to High</Button>
+          <Button onClick={()=>handleSort("high")}>High to Low</Button>
+</FormControl></div>
+</div>
+</div>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>

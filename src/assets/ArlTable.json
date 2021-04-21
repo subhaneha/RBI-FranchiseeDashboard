@@ -1,121 +1,158 @@
 [
-    {
-      "masterData":{
-        "name":"Alan Smith",
-      "noOfRestaurants":"4 Restaurants",
+  {
+    "masterData":{
+      "name":"Alan Smith",
+    "noOfRestaurants":"4 Restaurants",
+    "stars":1.5,
+    "role":"ARL",
+    "complaints":{ "current": "16", "previous": "8" },
+    "windowTime":{ "current": "81s", "previous": "83s" },
+    "trainingRate":{ "current": "75%", "previous": "83%" },
+    "turnoverRate":{ "current": "90%", "previous": "105%" },
+    "standards":{ "current": "73%", "previous": "87%" }	
+ } , 
+  "restaurants":[{
+        "name":"Restaurant #123",
+      "place":"31st&5th Ave,NY 00000",
       "stars":1.5,
       "complaints":{ "current": "16", "previous": "8" },
       "windowTime":{ "current": "81s", "previous": "83s" },
       "trainingRate":{ "current": "75%", "previous": "83%" },
       "turnoverRate":{ "current": "90%", "previous": "105%" },
       "standards":{ "current": "73%", "previous": "87%" }	
-   } , 
-    "restaurants":[{
-          "name":"Restaurant #123",
-        "place":"31st&5th Ave,NY 00000",
-        "stars":1.5,
-        "complaints":{ "current": "16", "previous": "8" },
-        "windowTime":{ "current": "81s", "previous": "83s" },
-        "trainingRate":{ "current": "75%", "previous": "83%" },
-        "turnoverRate":{ "current": "90%", "previous": "105%" },
-        "standards":{ "current": "73%", "previous": "87%" }	
-     },
-     {
-          "name":"Restaurant #137",
-        "place":"34th&3rd Ave,NY 00000",
-        "stars":2.5,
-        "complaints":{ "current": "11", "previous": "5" },
-        "windowTime":{ "current": "73s", "previous": "83s" },
-        "trainingRate":{ "current": "65%", "previous": "83%" },
-        "turnoverRate":{ "current": "45%", "previous": "55%" },
-        "standards":{ "current": "79%", "previous": "76%" }	
-     },
-     {
-          "name":"Restaurant #96",
-        "place":"7909 5th Ave,NY 1111",
-        "stars":3,
-        "complaints":{ "current": "13", "previous": "5" },
-        "windowTime":{ "current": "76s", "previous": "73s" },
-        "trainingRate":{ "current": "81%", "previous": "79%" },
-        "turnoverRate":{ "current": "23%", "previous": "12%" },
-        "standards":{ "current": "73%", "previous": "87%" }	
-     },
-     {
-          "name":"Restaurant #83",
-        "place":"45th Elmhurst St,NJ 22334",
-        "stars":3,
-        "complaints":{ "current": "7", "previous": "8" },
-        "windowTime":{ "current": "70s", "previous": "83s" },
-        "trainingRate":{ "current": "87%", "previous": "63%" },
-        "turnoverRate":{ "current": "90%", "previous": "105%" },
-        "standards":{ "current": "63%", "previous": "87%" }	
-     }]
-    
-    },
-    {
-      "masterData":{
-        "name":"Bob Johnson",
-      "noOfRestaurants":"2 Restaurants",
-      "stars":3,
-      "complaints":{ "current": "18", "previous": "10" },
+   },
+   {
+        "name":"Restaurant #137",
+      "place":"34th&3rd Ave,NY 00000",
+      "stars":2.5,
+      "complaints":{ "current": "11", "previous": "5" },
       "windowTime":{ "current": "73s", "previous": "83s" },
-      "trainingRate":{ "current": "71%", "previous": "83%" },
-      "turnoverRate":{ "current": "80%", "previous": "90%" },
-      "standards":{ "current": "73%", "previous": "87%" }	
-   } , 
-    "restaurants":[{
-          "name":"Restaurant #129",
-        "place":"31st&5th Ave,NY 00000",
-        "stars":1.5,
-        "complaints":{ "current": "16", "previous": "8" },
-        "windowTime":{ "current": "81s", "previous": "83s" },
-        "trainingRate":{ "current": "75%", "previous": "83%" },
-        "turnoverRate":{ "current": "90%", "previous": "105%" },
-        "standards":{ "current": "73%", "previous": "87%" }	
-     },
-     {
-          "name":"Restaurant #138",
-        "place":"34th&3rd Ave,NY 00000",
-        "stars":2.5,
-        "complaints":{ "current": "11", "previous": "5" },
-        "windowTime":{ "current": "73s", "previous": "83s" },
-        "trainingRate":{ "current": "65%", "previous": "83%" },
-        "turnoverRate":{ "current": "45%", "previous": "55%" },
-        "standards":{ "current": "79%", "previous": "76%" }	
-     }]
-    
-    },
-    {
-      "masterData":{
-        "name":"Leon Williams",
-      "noOfRestaurants":"2 Restaurants",
+      "trainingRate":{ "current": "65%", "previous": "83%" },
+      "turnoverRate":{ "current": "45%", "previous": "55%" },
+      "standards":{ "current": "79%", "previous": "76%" }	
+   },
+   {
+        "name":"Restaurant #96",
+      "place":"7909 5th Ave,NY 1111",
       "stars":3,
-      "complaints":{ "current": "18", "previous": "10" },
-      "windowTime":{ "current": "73s", "previous": "83s" },
-      "trainingRate":{ "current": "71%", "previous": "83%" },
-      "turnoverRate":{ "current": "80%", "previous": "90%" },
+      "complaints":{ "current": "13", "previous": "5" },
+      "windowTime":{ "current": "76s", "previous": "73s" },
+      "trainingRate":{ "current": "81%", "previous": "79%" },
+      "turnoverRate":{ "current": "23%", "previous": "12%" },
       "standards":{ "current": "73%", "previous": "87%" }	
-   } , 
-    "restaurants":[{
-          "name":"Restaurant #128",
-        "place":"31st&5th Ave,NY 00000",
-        "stars":1.5,
-        "complaints":{ "current": "16", "previous": "8" },
-        "windowTime":{ "current": "81s", "previous": "83s" },
-        "trainingRate":{ "current": "75%", "previous": "83%" },
-        "turnoverRate":{ "current": "90%", "previous": "105%" },
-        "standards":{ "current": "73%", "previous": "87%" }	
-     },
-     {
-          "name":"Restaurant #158",
-        "place":"34th&3rd Ave,NY 00000",
-        "stars":2.5,
-        "complaints":{ "current": "11", "previous": "5" },
-        "windowTime":{ "current": "73s", "previous": "83s" },
-        "trainingRate":{ "current": "65%", "previous": "83%" },
-        "turnoverRate":{ "current": "45%", "previous": "55%" },
-        "standards":{ "current": "79%", "previous": "76%" }	
-     }]
-    
-    }
-    ]
+   },
+   {
+        "name":"Restaurant #83",
+      "place":"45th Elmhurst St,NJ 22334",
+      "stars":3,
+      "complaints":{ "current": "7", "previous": "8" },
+      "windowTime":{ "current": "70s", "previous": "83s" },
+      "trainingRate":{ "current": "87%", "previous": "63%" },
+      "turnoverRate":{ "current": "90%", "previous": "105%" },
+      "standards":{ "current": "63%", "previous": "87%" }	
+   }]
+  
+  },
+  {
+    "masterData":{
+      "name":"Bob Johnson",
+    "noOfRestaurants":"2 Restaurants",
+    "stars":3,
+    "role":"ARL",
+    "complaints":{ "current": "18", "previous": "10" },
+    "windowTime":{ "current": "73s", "previous": "83s" },
+    "trainingRate":{ "current": "71%", "previous": "83%" },
+    "turnoverRate":{ "current": "80%", "previous": "90%" },
+    "standards":{ "current": "73%", "previous": "87%" }	
+ } , 
+  "restaurants":[{
+        "name":"Restaurant #129",
+      "place":"31st&5th Ave,NY 00000",
+      "stars":1.5,
+      "complaints":{ "current": "16", "previous": "8" },
+      "windowTime":{ "current": "81s", "previous": "83s" },
+      "trainingRate":{ "current": "75%", "previous": "83%" },
+      "turnoverRate":{ "current": "90%", "previous": "105%" },
+      "standards":{ "current": "73%", "previous": "87%" }	
+   },
+   {
+        "name":"Restaurant #138",
+      "place":"34th&3rd Ave,NY 00000",
+      "stars":2.5,
+      "complaints":{ "current": "11", "previous": "5" },
+      "windowTime":{ "current": "73s", "previous": "83s" },
+      "trainingRate":{ "current": "65%", "previous": "83%" },
+      "turnoverRate":{ "current": "45%", "previous": "55%" },
+      "standards":{ "current": "79%", "previous": "76%" }	
+   }]
+  
+  },
+  {
+    "masterData":{
+      "name":"Leon Williams",
+    "noOfRestaurants":"2 Restaurants",
+    "stars":2.5,
+    "role":"DO",
+    "complaints":{ "current": "18", "previous": "10" },
+    "windowTime":{ "current": "73s", "previous": "83s" },
+    "trainingRate":{ "current": "71%", "previous": "83%" },
+    "turnoverRate":{ "current": "80%", "previous": "90%" },
+    "standards":{ "current": "73%", "previous": "87%" }	
+ } , 
+  "restaurants":[{
+        "name":"Restaurant #128",
+      "place":"31st&5th Ave,NY 00000",
+      "stars":1.5,
+      "complaints":{ "current": "16", "previous": "8" },
+      "windowTime":{ "current": "81s", "previous": "83s" },
+      "trainingRate":{ "current": "75%", "previous": "83%" },
+      "turnoverRate":{ "current": "90%", "previous": "105%" },
+      "standards":{ "current": "73%", "previous": "87%" }	
+   },
+   {
+        "name":"Restaurant #158",
+      "place":"34th&3rd Ave,NY 00000",
+      "stars":2.5,
+      "complaints":{ "current": "11", "previous": "5" },
+      "windowTime":{ "current": "73s", "previous": "83s" },
+      "trainingRate":{ "current": "65%", "previous": "83%" },
+      "turnoverRate":{ "current": "45%", "previous": "55%" },
+      "standards":{ "current": "79%", "previous": "76%" }	
+   }]
+  
+  },
+  {
+    "masterData":{
+      "name":"John Smith",
+    "noOfRestaurants":"2 Restaurants",
+    "stars":3.1,
+    "role":"DO",
+    "complaints":{ "current": "18", "previous": "10" },
+    "windowTime":{ "current": "73s", "previous": "83s" },
+    "trainingRate":{ "current": "71%", "previous": "83%" },
+    "turnoverRate":{ "current": "80%", "previous": "90%" },
+    "standards":{ "current": "73%", "previous": "87%" }	
+ } , 
+  "restaurants":[{
+        "name":"Restaurant #128",
+      "place":"31st&5th Ave,NY 00000",
+      "stars":1.5,
+      "complaints":{ "current": "16", "previous": "8" },
+      "windowTime":{ "current": "81s", "previous": "83s" },
+      "trainingRate":{ "current": "75%", "previous": "83%" },
+      "turnoverRate":{ "current": "90%", "previous": "105%" },
+      "standards":{ "current": "73%", "previous": "87%" }	
+   },
+   {
+        "name":"Restaurant #158",
+      "place":"34th&3rd Ave,NY 00000",
+      "stars":2.5,
+      "complaints":{ "current": "11", "previous": "5" },
+      "windowTime":{ "current": "73s", "previous": "83s" },
+      "trainingRate":{ "current": "65%", "previous": "83%" },
+      "turnoverRate":{ "current": "45%", "previous": "55%" },
+      "standards":{ "current": "79%", "previous": "76%" }	
+   }]
+  
+  }
+  ]
