@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Typography } from "@material-ui/core";
 import Tooltip from '@material-ui/core/Tooltip';
 import {  Theme,makeStyles,createStyles } from '@material-ui/core/styles';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+
 
 import "./index.css"
 interface DetailProps {
@@ -13,36 +13,20 @@ interface DetailProps {
   rating: string
   previousValue: string;
   stars:number
-  tooltiptitle:string;
-  tooltipOptions:string[];
+  
   activate: (segment:string) => void
   deactivate: (segment:string) => void
   isHover:boolean;
   
   segment:string;
 }
-  const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    customWidth: {
-      width: "150px",
-      backgroundColor: theme.palette.common.white,
-      color: 'rgba(0, 0, 0, 0.87)',
-    }
-  }),
-);
+  
 const TileDetails = (props: DetailProps) => {
-    const classes=useStyles()
+    
     const [halfStar,setHalfStar]=useState(false)
     const [remStars,setRemStars]=useState(5-Math.floor(props.stars))
     
-    const toolTip=()=>{
-        return(
-            <div>
-                <div>{props.tooltiptitle}</div>
-                    {props.tooltipOptions.map((option,index)=><div key={index}>{option}</div>)}
-            </div>
-        )
-    }
+  
     // useEffect(()=>{
     //   // if(props){
     //   //   if((5-props.stars-Math.floor(5-props.stars))>=0.5){
@@ -80,7 +64,7 @@ const TileDetails = (props: DetailProps) => {
   }, [props.isHover])
   return (
     <div className={`tileDetails ${props.header}Tile`} id={`${props.detailHead.split(" ")[1]}`} onMouseOver={()=>props.activate(props.detailHead.split(" ")[1])} onMouseLeave={()=>props.deactivate(props.detailHead.split(" ")[1])}>
-       <Tooltip title={toolTip()} placement="left-start" className="tooltip" classes={{tooltip:classes.customWidth}}><InfoOutlinedIcon className="infoIcon"/></Tooltip>
+       
       <Typography className="tileObjectHeading">{props.detailHead}</Typography>
       
       <div className="valueIndicator">

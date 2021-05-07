@@ -18,6 +18,18 @@ opacity: 1;
     color:#D90F06 !important;  
     text-align: center !important; 
 }
+.guestHeadBK{
+    color: #C6371E !important;  
+    text-align: center !important; 
+}
+.teamHeadBK{
+    color: #408441 !important;
+    text-align: center !important;
+}
+.standardHeadBK{
+    color:#673E31 !important;
+    text-align: center !important;
+}
 .MuiTableCell-root{border-bottom: none !important;} 
 
 .MuiTableContainer-root{
@@ -259,5 +271,4 @@ right: 0;
   }
   .checkBox{
     color: #FF7D00 !important;
-    border-radius: 5px !important;
   }

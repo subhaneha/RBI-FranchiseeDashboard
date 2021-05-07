@@ -12,7 +12,7 @@
     height: 314px;
     width: 100%; */
     display: flex;
-    
+    margin-bottom: 5%;
 }
 
 /* .Guest:hover{
@@ -60,6 +60,24 @@ font-weight: 600;
     justify-content: space-around;
     align-items: center;
 }
+.infoIcon{
+  width: 15px !important;
+  height: 15px  !important;
+  color: #1589EE !important;
+  /* position: relative;
+  left: 100px;
+  top:-45px */
+}
+.tileHead{
+  display: -webkit-box;
+}
+.tooltipHead{
+font: normal normal bold 10px Chicken Sans !important
+}
+.tooltipOptions{
+  font: normal normal normal 10px Chicken Sans !important
+  }
+  
 @media only screen and (max-width: 1400px) {
   .tile{
   

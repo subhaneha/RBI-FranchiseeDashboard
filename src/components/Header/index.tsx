@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
@@ -67,6 +67,18 @@ const useStyles = makeStyles((theme: Theme) => ({
       zIndex: 3000,
     },
   },
+  appBarBK:{
+    display: "flex",
+    width: "100%",
+    alignItems: "center",
+    flexFlow: "row nowrap",
+    justifyContent: "space-between",
+    // padding: "10px 0px",
+    backgroundColor: "#502314",
+    [theme.breakpoints.down("sm")]: {
+      zIndex: 3000,
+    },
+  },
   brandLogoOnScroll: {
     // position: "absolute",
     width: "60px",
@@ -99,7 +111,7 @@ padding:"2px"
 const Header: React.FC<Props> = () => {
   const classes = useStyles();
   
-  
+  const [brandName,setBrandName]=useState("BK")
   const appBarClasses = classNames({
     [classes.appBar]: true,
     [classes.absolute]: true,
@@ -113,7 +125,7 @@ const Header: React.FC<Props> = () => {
       <AppBar
         // color="inherit"
         position="sticky"
-        className={classes.appBar}
+        className={brandName=="BK"?classes.appBarBK:classes.appBar}
       >
         <Toolbar className={classes.toolbar}>
           <List className={classes.navList}>
@@ -121,7 +133,7 @@ const Header: React.FC<Props> = () => {
               <Button >
                 <img
                   alt="logo"
-                  src="../../assets/PLK logo.svg"
+                  src={brandName=="BK"?"../../assets/burger-king.svg":"../../assets/PLK logo.svg"}
                   className={classes.brandLogoOnScroll}
                 />
               </Button>

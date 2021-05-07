@@ -2,6 +2,7 @@
 import { Box, Button, FormControl, InputLabel, MenuItem, Select, Typography } from '@material-ui/core'
 import axios from 'axios'
 import  React,{useState,useEffect}  from 'react'
+import Alert from '../../components/alert'
 import NestedTable from '../../components/NestedTable'
 import PieChart from '../../components/PieChart/index'
 import RestaurantTable from '../../components/Table/index'
@@ -28,8 +29,7 @@ const backendData={
             rating: "Reduce by 3",
             previousValue: "8",
             stars:2,
-            tooltiptitle:'The thresholds for grade storing as follows:',
-            tooltipOptions:["A:0.0 to 0.0","B:0.0 to 0.0","C:0.0 to 0.0","D:0.0 to 0.0"]
+
         },{
             detailHead: "Average Windows Time",
             numberValue: "70s",
@@ -37,8 +37,7 @@ const backendData={
             rating: "Reduce by 5s",
             previousValue: "83s",
             stars:3.5,
-            tooltiptitle:'The thresholds for grade storing as follows:',
-            tooltipOptions:["A:0.0 to 0.0","B:0.0 to 0.0","C:0.0 to 0.0","D:0.0 to 0.0"]
+
         }]
      },
      {
@@ -50,8 +49,7 @@ const backendData={
            rating: "Reduce by 3",
            previousValue: "8",
            stars:2,
-           tooltiptitle:'The thresholds for grade storing as follows:',
-           tooltipOptions:["A:0.0 to 0.0","B:0.0 to 0.0","C:0.0 to 0.0","D:0.0 to 0.0"]
+         
        },{
            detailHead: "Average Turnover Rate",
            numberValue: "70s",
@@ -59,8 +57,7 @@ const backendData={
            rating: "Reduce by 5s",
            previousValue: "83s",
            stars:3,
-           tooltiptitle:'The thresholds for grade storing as follows:',
-           tooltipOptions:["A:0.0 to 0.0","B:0.0 to 0.0","C:0.0 to 0.0","D:0.0 to 0.0"]
+
        }]
     },
     {
@@ -72,8 +69,7 @@ const backendData={
            rating: "Reduce by 5",
            previousValue: "8",
            stars:2,
-           tooltiptitle:'The thresholds for grade storing as follows:',
-           tooltipOptions:["A:0.0 to 0.0","B:0.0 to 0.0","C:0.0 to 0.0","D:0.0 to 0.0"]
+
         }
        ]
     }
@@ -166,6 +162,7 @@ const Dashboard=()=>{
   }
    return(
       <div className="root">
+        <Alert/>
          <Typography className="Navigation">Home&gt;July 2020 to Dec 2020</Typography>
          <div className="maindiv">
          <div className="Heading">Hi {data?.username} Here's your Scorecard for {data?.timeperiod}</div>

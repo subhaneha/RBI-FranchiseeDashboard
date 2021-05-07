@@ -141,7 +141,7 @@ return(
               classes.titleText
           }
         >
-          Home
+          My Grading
         </Typography>
       </Button>
       <Button>
@@ -153,7 +153,7 @@ return(
               classes.titleText
           }
         >
-          How it works
+          Grading Calculation
         </Typography>
       </Button>
       <div className={classes.buttonBordered}>

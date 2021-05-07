@@ -80,6 +80,7 @@ const RestaurantTable = (props:TableProps) => {
   const [filterValues,setFilterValues]=useState([""])
   const [cancelClicked,setCancelClicked]=useState(true)
   const [utilClicked,setUtilClicked]=useState("")
+  const [brandName,setBrandName]=useState("BK")
   useEffect(()=>{
    
     
@@ -141,22 +142,22 @@ const RestaurantTable = (props:TableProps) => {
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell className="header restaurant">
-                Restaurant Number
+              <TableCell className={brandName=="BK"?"header restaurantBK":"header restaurant"}>
+                Restaurant Info
               </TableCell>
-              <TableCell className="header guestHead">
+              <TableCell className={brandName=="BK"?"header guestHeadBK":"header guestHead"}>
                 Avg.Complaints Ratio
               </TableCell>
-              <TableCell className="header guestHead">
+              <TableCell className={brandName=="BK"?"header guestHeadBK":"header guestHead"}>
                 Avg.Window Time
               </TableCell>
-              <TableCell className="header teamHead">
+              <TableCell className={brandName=="BK"?"header teamHeadBK":"header teamHead"}>
                 Avg. Training Rate
               </TableCell>
-              <TableCell className="header teamHead">
+              <TableCell className={brandName=="BK"?"header teamHeadBK":"header teamHead"}>
                 Avg. Turnover Rate
               </TableCell>
-              <TableCell className="header standardHead">
+              <TableCell className={brandName=="BK"?"header standardHeadBK":"header standardHead"}>
                 Avg. Brand Standards
               </TableCell>
             </TableRow>

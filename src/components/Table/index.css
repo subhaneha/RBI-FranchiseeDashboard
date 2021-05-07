@@ -10,6 +10,14 @@ opacity: 1;
     color: #00B2A9 !important;  
     text-align: center !important; 
 }
+.guestHeadBK{
+    color: #C6371E !important;  
+    text-align: center !important; 
+}
+.teamHeadBK{
+    color: #408441 !important;
+    text-align: center !important;
+}
 .teamHead{
     color:#911987 !important;  
     text-align: center !important; 
@@ -17,6 +25,10 @@ opacity: 1;
 .standardHead{
     color:#D90F06 !important;  
     text-align: center !important; 
+}
+.standardHeadBK{
+    color:#673E31 !important;
+    text-align: center !important;
 }
 .MuiTableCell-root{border-bottom: none !important;} 
 
