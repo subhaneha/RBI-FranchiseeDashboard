@@ -3,6 +3,7 @@ import { Box, Button, FormControl, InputLabel, MenuItem, Select, Typography } fr
 import axios from 'axios'
 import  React,{useState,useEffect}  from 'react'
 import Alert from '../../components/alert'
+import InlineAlert from '../../components/InlineAlert/index'
 import NestedTable from '../../components/NestedTable'
 import PieChart from '../../components/PieChart/index'
 import RestaurantTable from '../../components/Table/index'
@@ -162,7 +163,8 @@ const Dashboard=()=>{
   }
    return(
       <div className="root">
-        <Alert/>
+        {/* <InlineAlert alertType="Warning" /> */}
+        <Alert alertType="Warning" actionable={true}/>
          <Typography className="Navigation">Home&gt;July 2020 to Dec 2020</Typography>
          <div className="maindiv">
          <div className="Heading">Hi {data?.username} Here's your Scorecard for {data?.timeperiod}</div>
