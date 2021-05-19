@@ -1,0 +1,36 @@
+{
+    "data":[
+        {
+            "gradeTitle":"B",
+            "gradeColor":"#00B275",
+            "gradeStart":"Jan 2019",
+            "gradeEnd":"Jun 2019"
+        },
+        {
+            "gradeTitle":"F",
+            "gradeColor":"#C6371E",
+            "gradeStart":"Jul 2019",
+            "gradeEnd":"Dec 2019"
+        },
+        {
+            "gradeTitle":"A",
+            "gradeColor":"#408441",
+            "gradeStart":"Jan 2020",
+            "gradeEnd":"Jun 2020"
+        },
+        {
+            "gradeTitle":"B",
+            "gradeColor":"#00B275",
+            "gradeStart":"Jul 2020",
+            "gradeEnd":"Dec 2020"
+        },
+        {
+            "gradeTitle":"D",
+            "gradeColor":"#FF8732",
+            "gradeStart":"Jan 2021",
+            "gradeEnd":"Jun 2021"
+        }
+
+
+    ]
+}

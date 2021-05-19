@@ -1,0 +1,58 @@
+div.extended-text-container{
+  display: grid;
+  grid-template-columns: 80px repeat(1, 1fr) 80px;
+  grid-template-rows: repeat(1, 900px);
+
+  svg.svg.background {
+    
+    background-color: #408441;
+  }
+
+}
+
+image.even {
+  x: 0;
+  y:0;
+  transition: x 1s ease-in-out;
+}
+
+text {
+
+  &.text.header-greeting {
+    font-family: 'Chicken SansBold';
+    font-size: 34px;
+    margin-left: 5.5%;
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+    color: white !important;
+    
+    &.not-visible {
+      transition: opacity 1s ease-in-out;
+      opacity: 0;
+    }
+
+  }
+ 
+}
+.grading-circle{
+  background: #F3EBDE 0% 0% no-repeat padding-box;
+  border:1px solid #408441;
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+ 
+}
+.grading-div{
+  position: relative;
+  top: 370px;
+  left:100px;
+}
+.grading-content{
+  text-align: center;
+  font:normal normal 18px Chicken Sans;
+  position: relative;
+  left:-10px;
+}
+.grading-content-div{
+  width: fit-content;
+}

@@ -10,30 +10,10 @@ import Paper from "@material-ui/core/Paper";
 import {  Button, Checkbox, FormControl, FormControlLabel, InputLabel, Select, Typography } from "@material-ui/core";
 import "./index.css";
 import axios from "axios";
-import { NestedTableType } from "../NestedTable";
 import { ExpandLess } from "@material-ui/icons";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-function createData(
-  name: string,
-  place: string,
-  stars: number,
-  complaints: { current: string; previous: string },
-  windowTime: { current: string; previous: string },
-  trainingRate: { current: string; previous: string },
-  turnoverRate: { current: string; previous: string },
-  standards: { current: string; previous: string }
-) {
-  return {
-    name,
-    place,
-    stars,
-    complaints,
-    windowTime,
-    trainingRate,
-    turnoverRate,
-    standards,
-  };
-}
+import { data } from "./tableresponse.json"
+
 const useStyles = makeStyles((theme: Theme) =>({
   table: {
     width: "99%",
@@ -44,33 +24,61 @@ const useStyles = makeStyles((theme: Theme) =>({
     minWidth: 120,
   },
 }));
-interface TableData{
-  name: string,
-  place: string,
-  stars: number,
-  complaints: { current: string; previous: string },
-  windowTime: { current: string; previous: string },
-  trainingRate: { current: string; previous: string },
-  turnoverRate: { current: string; previous: string },
-  standards: { current: string; previous: string }
+export interface TableData{
+  granularity: string,
+  fzcode: number,
+  fzname: string,
+  period: string,
+  countrycode: string,
+  gmname: string,
+  arlname: string,
+  doname: string,
+  restadress: string,
+  acr: string,
+  sos: string,
+  avgtrainingrate: string,
+  turnoverrate:string,
+  brandstandards: string,
+  overallstarrating: string,
+  prevacr: string,
+  prevsos: string,
+  prevavgtrainingrate: string,
+  prevturnoverrate: string,
+  prevbrandstandards: string,
+  prevoverallstarrating: string,
+  restcnt: string
 }
 
 interface TableProps{
-  rows:NestedTableType[]
+  rows:TableData[]
 }
-const row=[
+export const row=[
   {
-    name:"",
-  place:"",
-  stars:0,
-  complaints:{ current: "", previous: "" },
-  windowTime:{ current: "", previous: "" },
-  trainingRate:{ current: "", previous: "" },
-  turnoverRate:{ current: "", previous: "" },
-  standards:{ current: "", previous: "" }	
+    granularity: "",
+    fzcode: 0,
+    fzname: "",
+    period: "",
+    countrycode: "",
+    gmname: "",
+    arlname: "",
+    doname: "",
+    restadress: "",
+    acr: "",
+    sos: "",
+    avgtrainingrate: "",
+    turnoverrate:"",
+    brandstandards: "",
+    overallstarrating: "",
+    prevacr: "",
+    prevsos: "",
+    prevavgtrainingrate: "",
+    prevturnoverrate: "",
+    prevbrandstandards: "",
+    prevoverallstarrating: "",
+    restcnt: ""
 }]
 
-const RestaurantTable = (props:TableProps) => {
+const RestaurantTable = () => {
   const classes = useStyles();
   const [isVisible,setIsVisible]=useState("")
   const [rows,setRows]=useState<TableData[]>(row)
@@ -82,13 +90,13 @@ const RestaurantTable = (props:TableProps) => {
   const [utilClicked,setUtilClicked]=useState("")
   const [brandName,setBrandName]=useState("BK")
   useEffect(()=>{
+    let arr=Object.values(data)
+   let checkArr:TableData[]=row
+   arr.map((row)=>checkArr.push(row))
+   checkArr.shift()
+  setRows(checkArr)
    
-    
-    const tempRows:TableData[]=row
-    props.rows.forEach(row=>{row.restaurants.forEach(restaurant=>tempRows.push(restaurant))})
-    tempRows.shift()
-    setRows(tempRows)
-  },[props.rows])
+  },[])
   const handleCheck=(event:any)=>{
     event.target.checked && filterValues.push(event.target.name)
     if(!event.target.checked){
@@ -99,8 +107,8 @@ const RestaurantTable = (props:TableProps) => {
  
   const handleSort=(order:string)=>{
     setSortValue(order)
-    if(order==="low") setRows(rows.sort((a,b)=>a.stars-b.stars))
-    else if(order==="high") setRows(rows.sort((a,b)=>b.stars-a.stars))
+    if(order==="low") setRows(rows.sort((a,b)=>Number(a.overallstarrating)-Number(b.overallstarrating)))
+    else if(order==="high") setRows(rows.sort((a,b)=>Number(b.overallstarrating)-Number(a.overallstarrating)))
     setCancelClicked(true)
   }
   return (
@@ -164,15 +172,15 @@ const RestaurantTable = (props:TableProps) => {
           </TableHead>
           <TableBody>
             {rows?.map((row) => (
-              <TableRow key={row.name} className="tablerow">
+              <TableRow key={row.fzname} className="tablerow">
                 <TableCell component="th" scope="row">
-                  <Typography className="restaurantName">{row.name}</Typography>
+                  <Typography className="restaurantName">{row.fzname}</Typography>
                   <Typography className="restaurantPlace">
-                    {row.place}
+                    {row.restadress}
                   </Typography>
                   <div className="starsDiv">
                     <div>
-                      {Array(Math.floor(row.stars))
+                      {Array(Math.floor(Number(row.overallstarrating)))
                         .fill(0)
                         .map((_, index) => (
                           <img
@@ -186,7 +194,7 @@ const RestaurantTable = (props:TableProps) => {
                           ></img>
                         ))}
                       {/* {((5-row.stars-Math.floor(5-row.stars))>=0.5)&&<img  src={process.env.PUBLIC_URL+"/assets/star-half-yellow.svg"} className="halfstar"></img>} */}
-                      {Array(Number(5 - Math.floor(row.stars)))
+                      {Array(Number(5 - Math.floor(Number(row.overallstarrating))))
                         .fill(0)
                         .map((_, index) => (
                           <img
@@ -200,13 +208,13 @@ const RestaurantTable = (props:TableProps) => {
                         ))}
                     </div>
                     <Typography className="starsRating">
-                      {row.stars}/5 stars
+                      {row.overallstarrating}/5 stars
                     </Typography>
                   </div>
                 </TableCell>
                 <TableCell align="center">
                   <Typography className="currentValue">
-                    {row.complaints.current}
+                    {row.acr}
                     <img
                     alt="inidcator"
                       className="redIndicatorUp"
@@ -214,12 +222,12 @@ const RestaurantTable = (props:TableProps) => {
                     ></img>
                   </Typography>
                   <Typography className="previousValue">
-                    Previous:{row.complaints.previous}
+                    Previous:{row.prevacr}
                   </Typography>
                 </TableCell>
                 <TableCell align="center">
                   <Typography className="currentValue">
-                    {row.windowTime.current}{" "}
+                    {row.sos}
                     <img
                       className="greenIndicatorDown"
                       alt="indicator"
@@ -227,12 +235,12 @@ const RestaurantTable = (props:TableProps) => {
                     ></img>
                   </Typography>
                   <Typography className="previousValue">
-                    Previous:{row.windowTime.previous}
+                    Previous:{row.prevsos}
                   </Typography>
                 </TableCell>
                 <TableCell align="center">
                   <Typography className="currentValue">
-                    {row.trainingRate.current}{" "}
+                    {row.avgtrainingrate}
                     <img
                       className="redIndicatorDown"
                       alt="indicator"
@@ -240,12 +248,12 @@ const RestaurantTable = (props:TableProps) => {
                     ></img>
                   </Typography>
                   <Typography className="previousValue">
-                    Previous:{row.trainingRate.previous}
+                    Previous:{row.prevavgtrainingrate}
                   </Typography>
                 </TableCell>
                 <TableCell align="center">
                   <Typography className="currentValue">
-                    {row.turnoverRate.current}{" "}
+                    {row.turnoverrate}
                     <img
                       className="greenIndicatorDown"
                       alt="indicator"
@@ -253,12 +261,12 @@ const RestaurantTable = (props:TableProps) => {
                     ></img>
                   </Typography>
                   <Typography className="previousValue">
-                    Previous:{row.turnoverRate.previous}
+                    Previous:{row.prevturnoverrate}
                   </Typography>
                 </TableCell>
                 <TableCell align="center">
                   <Typography className="currentValue">
-                    {row.standards.current}{" "}
+                    {row.brandstandards}
                     <img
                     alt="indicator"
                       className="redIndicatorDown"
@@ -266,7 +274,7 @@ const RestaurantTable = (props:TableProps) => {
                     ></img>
                   </Typography>
                   <Typography className="previousValue">
-                    Previous:{row.standards.previous}
+                    Previous:{row.prevbrandstandards}
                   </Typography>
                 </TableCell>
               </TableRow>

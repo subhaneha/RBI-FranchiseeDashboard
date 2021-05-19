@@ -1,0 +1,22 @@
+{
+  "data": [
+    { "text": "Welcome to your Analytics Dashboard."
+    , "offset": { "x" : 0, "y": 70 }
+    , "image": { "x": 20, "y": -150} }
+  , { "text": ""
+    , "offset": { "x" : 0, "y": 70 }
+    , "image": { "x": 20, "y": 30 }},
+    { "text": "This is your scorecard timeline."
+    , "offset": { "x" : 400, "y": 310 }
+    ,  "image": { "x": 250, "y": 270 } },
+    { "text": "Every six months, your franchisee grade will be posted here."
+    , "offset": { "x" : 400, "y": 440 }
+    , "image": { "x": 250, "y": 270 } },
+    { "text": "If you want all the gritty details, check out the How it works page!"
+    ,"offset": { "x" : 105, "y": 125 }
+    , "image": { "x": 1155, "y":  150 } },
+    { "text": "Welcome to your Analytics Dashboard."
+      ,"offset": { "x" : 0, "y": 70 }
+      , "image": { "x": 1055, "y":  110 } }
+  ]
+}

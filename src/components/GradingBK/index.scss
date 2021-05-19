@@ -1,0 +1,64 @@
+$crunchy-green:#408441;
+.grading-container{
+    height: 451px;
+    background: $crunchy-green 0% 0% no-repeat padding-box;
+opacity: 1;
+z-index: -1;
+}
+.grades-title{
+    font: normal normal 34px Chicken SansBold;
+}
+.grades{
+    border-radius: 50%;
+    background-color: white;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: normal normal bold 70px Chicken Sans;
+    color: white;
+    z-index: 1;
+    transition: all 0.2s ease-out;
+    box-shadow: 4px 4px 4px initial;
+}
+.grades-current{
+    border-radius: 50%;
+    background-color: white;
+    width: 150px;
+    height: 150px;
+    border: $crunchy-green solid 3px;
+}
+.grades:hover{
+    width: 155px;
+    height: 155px;   
+}
+.grades-date{
+    font: normal normal 22px Chicken SansBold;
+}
+.grades-current-date{
+    font: normal normal 22px Chicken Sans;
+    color: $crunchy-green;
+    text-align: center;
+}
+.grades-current-progress{
+    font: normal normal 24px Chicken SansBold;
+    color: $crunchy-green;
+}
+.grades-map-current{
+    position: relative;
+    left: -40px;
+}
+.grades-div{
+    position: relative;
+    top: 350px;
+    display: flex;
+    justify-content: space-around;
+}
+.grades-map{
+   
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}

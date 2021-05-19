@@ -9,18 +9,17 @@
     padding: 10px;
 }
 .Success{
-    background-color: #DFFFE3;
-    border:1px solid lightgreen;
+    background: #4084410D 0% 0% no-repeat padding-box;
+    border: 1px solid #408441;
 }
 .Neutral{
     background-color: #FFF0E3;
     border:1px solid #FFC793;
 }
 .Warning{
-    background-color:#FFF2F2 ;
-    border:1px solid #F09B91;
+    background: #FFF2F2 0% 0% no-repeat padding-box;
+    border: 1px solid #C6371E;
 }
-
 .alertType{
     font: normal normal bold 1rem Chicken SansBold;
     padding-left: 5px;

@@ -1,0 +1,44 @@
+{
+  "data": [{
+    "grade": "B",
+    "scoreIdentifier": 1,
+    "status": "complete",
+    "period": "Jan 2019 - Jun 2019",
+    "issueDate": null
+  },{
+    "grade": "B",
+    "scoreIdentifier": 2,
+    "status": "complete",
+    "period": "Jul 2019 - Dec 2019",
+    "issueDate": null
+  },{
+    "grade": "F",
+    "scoreIdentifier": 3,
+    "status": "complete",
+    "period": "Jan 2020 - Jun 2020",
+    "issueDate": null
+  },{
+    "grade": "A",
+    "scoreIdentifier": 4,
+    "status": "complete",
+    "period": "Jul 2020 - Dec 2020",
+    "issueDate": null
+  },{
+    "grade": "D",
+    "scoreIdentifier": 5,
+    "status": "complete",
+    "period": "Jan 2021 - Jun 2021",
+    "issueDate": null
+  },{
+    "grade": "",
+    "scoreIdentifier": 6,
+    "status": "pending",
+    "period": "Jul 2021 - Dec 2021",
+    "issueDate": "Jul 1st 2021"
+  }],
+  "noData": [{
+    "status": "pending",
+    "period": "Jul 2019 - Dec 2019",
+    "issueDate": "Jan 1st 2020"
+  }]
+}

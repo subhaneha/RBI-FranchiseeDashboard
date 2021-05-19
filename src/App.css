@@ -13,3 +13,8 @@
   src: url("../src/assets/FlameSans-Regular.otf");
   
 }
+@font-face{
+  font-family: 'Flame SansBold';
+  src: url("../src/assets/Flame-Bold-Variable.ttf");
+  
+}

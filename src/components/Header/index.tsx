@@ -81,8 +81,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   brandLogoOnScroll: {
     // position: "absolute",
-    width: "60px",
-    height:"60px"
+    width: "30px",
+    height:"30px"
   },
   inputRoot: {
     color: "#fff",
